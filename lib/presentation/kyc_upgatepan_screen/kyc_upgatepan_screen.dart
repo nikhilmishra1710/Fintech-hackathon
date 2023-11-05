@@ -65,17 +65,29 @@ class KycUpgatepanScreen extends StatelessWidget {
                                   left: 3.h, top: 69.v, right: 3.h)),
                           CustomTextFormField(
                               controller: pannumberlabelController,
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'Pan Number cannot be empty';
+                                }
+                                if (value.length != 10) {
+                                  return 'Pan Number must be 10 digits';
+                                }
+                                return null;
+                              },
                               margin: EdgeInsets.only(
                                   left: 3.h, top: 69.v, right: 3.h),
                               hintText: "Pan Number",
                               hintStyle: theme.textTheme.bodyLarge!,
                               textInputAction: TextInputAction.done,
-                              textInputType: TextInputType.number),
+                              textInputType: TextInputType.text),
                           CustomElevatedButton(
                             text: "Submit",
                             margin: EdgeInsets.fromLTRB(3.h, 69.v, 3.h, 4.v),
                             onTap: () {
-                              onTapkyccon(context);
+                              //onTapkyccon(context);
+                              if (_formKey.currentState!.validate()) {
+                                onTapkyccon(context);
+                              }
                             },
                           )
                         ]))),

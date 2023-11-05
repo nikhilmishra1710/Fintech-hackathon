@@ -54,88 +54,140 @@ class NeftScreen extends StatelessWidget {
                     width: double.maxFinite,
                     padding:
                         EdgeInsets.symmetric(horizontal: 19.h, vertical: 32.v),
-                    child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(children: [
-                            Container(
-                                height: 47.adaptSize,
-                                width: 47.adaptSize,
-                                decoration: BoxDecoration(
-                                    color: appTheme.redA100,
-                                    borderRadius: BorderRadius.circular(23.h))),
+                    child: SingleChildScrollView(
+                      child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(children: [
+                              Container(
+                                  height: 47.adaptSize,
+                                  width: 47.adaptSize,
+                                  decoration: BoxDecoration(
+                                      color: appTheme.redA100,
+                                      borderRadius:
+                                          BorderRadius.circular(23.h))),
+                              Padding(
+                                  padding: EdgeInsets.only(
+                                      left: 17.h, top: 13.v, bottom: 12.v),
+                                  child: Text("South Indian Bank Fastag",
+                                      style:
+                                          CustomTextStyles.bodyLargeBlack90003))
+                            ]),
+                            SizedBox(height: 19.v),
+                            Divider(
+                                color: appTheme.black90003.withOpacity(0.2)),
                             Padding(
-                                padding: EdgeInsets.only(
-                                    left: 17.h, top: 13.v, bottom: 12.v),
-                                child: Text("South Indian Bank Fastag",
-                                    style:
-                                        CustomTextStyles.bodyLargeBlack90003))
+                                padding: EdgeInsets.only(left: 3.h, top: 25.v),
+                                child: Text("Make new transfer",
+                                    style: CustomTextStyles
+                                        .titleMediumBluegray90019)),
+                            CustomTextFormField(
+                                controller: nameController,
+                                validator: (value) {
+                                  if (value == null || value.isEmpty) {
+                                    return 'Name cannot be empty';
+                                  }
+                                  return null;
+                                },
+                                margin: EdgeInsets.only(
+                                    left: 3.h, top: 12.v, right: 19.h),
+                                hintText: "Name",
+                                hintStyle: theme.textTheme.bodyLarge!,
+                                borderDecoration:
+                                    TextFormFieldStyleHelper.fillRed,
+                                fillColor: appTheme.red50),
+                            CustomTextFormField(
+                                controller: accountnumberlaController,
+                                validator: (value) {
+                                  if (value == null || value.isEmpty) {
+                                    return 'Aadhar Number cannot be empty';
+                                  }
+                                  if (value.length != 12) {
+                                    return 'Aadhar Number must be 12 digits';
+                                  }
+                                  return null;
+                                },
+                                margin: EdgeInsets.only(
+                                    left: 3.h, top: 13.v, right: 19.h),
+                                hintText: "Enter Account Number",
+                                hintStyle: theme.textTheme.bodyLarge!,
+                                textInputType: TextInputType.number,
+                                contentPadding: EdgeInsets.symmetric(
+                                    horizontal: 12.h, vertical: 19.v),
+                                borderDecoration:
+                                    TextFormFieldStyleHelper.fillRed,
+                                fillColor: appTheme.red50),
+                            CustomTextFormField(
+                                controller: accountnumberlaController1,
+                                validator: (value) {
+                                  if (value == null || value.isEmpty) {
+                                    return 'Amount cannot be empty';
+                                  }
+
+                                  if (double.tryParse(value) == null) {
+                                    return 'Please enter a valid number';
+                                  }
+
+                                  return null;
+                                },
+                                margin: EdgeInsets.only(
+                                    left: 3.h, top: 13.v, right: 19.h),
+                                hintText: "Re-enter Acoount Number",
+                                hintStyle: theme.textTheme.bodyLarge!,
+                                textInputType: TextInputType.number,
+                                contentPadding: EdgeInsets.symmetric(
+                                    horizontal: 12.h, vertical: 19.v),
+                                borderDecoration:
+                                    TextFormFieldStyleHelper.fillRed,
+                                fillColor: appTheme.red50),
+                            CustomTextFormField(
+                                controller: ifsccodelabelController,
+                                validator: (value) {
+                                  if (value == null || value.isEmpty) {
+                                    return 'IFSC code cannot be empty';
+                                  }
+                                  if (value.length != 11) {
+                                    return 'Ifsc Code must be 11 digits';
+                                  }
+                                  return null;
+                                },
+                                margin: EdgeInsets.only(
+                                    left: 3.h, top: 13.v, right: 18.h),
+                                hintText: "IFSC Code",
+                                hintStyle: theme.textTheme.bodyLarge!,
+                                borderDecoration:
+                                    TextFormFieldStyleHelper.fillRed,
+                                fillColor: appTheme.red50),
+                            CustomTextFormField(
+                                controller: mobileNumberController,
+                                validator: (value) {
+                                  if (value == null || value.isEmpty) {
+                                    return 'Molbile Number cannot be empty';
+                                  }
+                                  if (value.length != 10) {
+                                    return 'Mobile Number must be 10 digits';
+                                  }
+                                  return null;
+                                },
+                                margin: EdgeInsets.only(
+                                    left: 3.h, top: 13.v, right: 19.h),
+                                hintText: "Reciever’s Mobile Number",
+                                hintStyle: theme.textTheme.bodyLarge!,
+                                textInputAction: TextInputAction.done,
+                                textInputType: TextInputType.phone),
+                            CustomElevatedButton(
+                              text: "Submit",
+                              margin:
+                                  EdgeInsets.fromLTRB(23.h, 76.v, 51.h, 5.v),
+                              onTap: () {
+                                if (_formKey.currentState!.validate()) {
+                                  onTapneft(context);
+                                }
+                                //onTapneft(context);
+                              },
+                            )
                           ]),
-                          SizedBox(height: 19.v),
-                          Divider(color: appTheme.black90003.withOpacity(0.2)),
-                          Padding(
-                              padding: EdgeInsets.only(left: 3.h, top: 25.v),
-                              child: Text("Make new transfer",
-                                  style: CustomTextStyles
-                                      .titleMediumBluegray90019)),
-                          CustomTextFormField(
-                              controller: nameController,
-                              margin: EdgeInsets.only(
-                                  left: 3.h, top: 12.v, right: 19.h),
-                              hintText: "Name",
-                              hintStyle: theme.textTheme.bodyLarge!,
-                              borderDecoration:
-                                  TextFormFieldStyleHelper.fillRed,
-                              fillColor: appTheme.red50),
-                          CustomTextFormField(
-                              controller: accountnumberlaController,
-                              margin: EdgeInsets.only(
-                                  left: 3.h, top: 13.v, right: 19.h),
-                              hintText: "Enter Account Number",
-                              hintStyle: theme.textTheme.bodyLarge!,
-                              textInputType: TextInputType.number,
-                              contentPadding: EdgeInsets.symmetric(
-                                  horizontal: 12.h, vertical: 19.v),
-                              borderDecoration:
-                                  TextFormFieldStyleHelper.fillRed,
-                              fillColor: appTheme.red50),
-                          CustomTextFormField(
-                              controller: accountnumberlaController1,
-                              margin: EdgeInsets.only(
-                                  left: 3.h, top: 13.v, right: 19.h),
-                              hintText: "Re-enter Acoount Number",
-                              hintStyle: theme.textTheme.bodyLarge!,
-                              textInputType: TextInputType.number,
-                              contentPadding: EdgeInsets.symmetric(
-                                  horizontal: 12.h, vertical: 19.v),
-                              borderDecoration:
-                                  TextFormFieldStyleHelper.fillRed,
-                              fillColor: appTheme.red50),
-                          CustomTextFormField(
-                              controller: ifsccodelabelController,
-                              margin: EdgeInsets.only(
-                                  left: 3.h, top: 13.v, right: 18.h),
-                              hintText: "IFSC Code",
-                              hintStyle: theme.textTheme.bodyLarge!,
-                              borderDecoration:
-                                  TextFormFieldStyleHelper.fillRed,
-                              fillColor: appTheme.red50),
-                          CustomTextFormField(
-                              controller: mobileNumberController,
-                              margin: EdgeInsets.only(
-                                  left: 3.h, top: 13.v, right: 19.h),
-                              hintText: "Reciever’s Mobile Number",
-                              hintStyle: theme.textTheme.bodyLarge!,
-                              textInputAction: TextInputAction.done,
-                              textInputType: TextInputType.phone),
-                          CustomElevatedButton(
-                            text: "Submit",
-                            margin: EdgeInsets.fromLTRB(23.h, 76.v, 51.h, 5.v),
-                            onTap: () {
-                              onTapneft(context);
-                            },
-                          )
-                        ]))),
+                    ))),
             bottomNavigationBar:
                 CustomBottomBar(onChanged: (BottomBarEnum type) {})));
   }

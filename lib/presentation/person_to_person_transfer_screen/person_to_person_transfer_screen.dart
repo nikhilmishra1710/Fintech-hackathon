@@ -92,7 +92,7 @@ class PersonToPersonTransferScreen extends StatelessWidget {
                                                       .headlineMedium))),
                                       SizedBox(height: 6.v),
                                       Align(
-                                          alignment: Alignment.centerLeft,
+                                          alignment: Alignment.center,
                                           child: Text("$accNo",
                                               style: CustomTextStyles
                                                   .titleMedium16_1)),

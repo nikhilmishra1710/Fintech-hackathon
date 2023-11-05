@@ -29,6 +29,7 @@ class _RdScreenState extends State<RdScreen> {
   TextEditingController amountController = TextEditingController();
 
   TextEditingController dateController = TextEditingController();
+  GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   bool agreementText = false;
 
@@ -54,98 +55,118 @@ class _RdScreenState extends State<RdScreen> {
                       margin:
                           EdgeInsets.symmetric(horizontal: 29.h, vertical: 4.v))
                 ]),
-            body: Container(
-                width: double.maxFinite,
-                padding: EdgeInsets.symmetric(horizontal: 17.h, vertical: 32.v),
-                child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                          padding: EdgeInsets.only(left: 2.h),
-                          child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Container(
-                                    height: 47.adaptSize,
-                                    width: 47.adaptSize,
-                                    decoration: BoxDecoration(
-                                        color: appTheme.redA100,
-                                        borderRadius:
-                                            BorderRadius.circular(23.h))),
-                                Padding(
-                                    padding: EdgeInsets.only(
-                                        left: 17.h, top: 12.v, bottom: 13.v),
-                                    child: Text("South Indian Bank ",
-                                        style: CustomTextStyles
-                                            .bodyLargeBlack90003))
-                              ])),
-                      Padding(
-                          padding: EdgeInsets.only(top: 19.v),
-                          child: Divider(
-                              color: appTheme.black90003.withOpacity(0.2),
-                              indent: 2.h)),
-                      CustomTextFormField(
-                          controller: amountController,
-                          margin: EdgeInsets.only(
-                              left: 2.h, top: 18.v, right: 27.h),
-                          hintText: "Amount",
-                          hintStyle: theme.textTheme.bodyLarge!,
-                          borderDecoration: TextFormFieldStyleHelper.fillRed,
-                          fillColor: appTheme.red50),
-                      CustomTextFormField(
-                          controller: dateController,
-                          margin: EdgeInsets.only(
-                              left: 2.h, top: 86.v, right: 26.h),
-                          hintText: "Date",
-                          hintStyle: theme.textTheme.bodyLarge!,
-                          textInputAction: TextInputAction.done,
-                          borderDecoration: TextFormFieldStyleHelper.fillRed,
-                          fillColor: appTheme.red50),
-                      SizedBox(height: 45.v),
-                      // CustomCheckboxButton(
-                      //     text: "I agree to terms and condition  ",
-                      //     value: agreementText,
-                      //     onChange: (value) {
-                      //       agreementText = value;
-                      //     }),
-                      Row(
-                        children: [
-                          InkWell(
-                            child: Container(
-                              width: 18.0,
-                              height: 18.0,
-                              decoration:
-                                  BoxDecoration(color: Colors.grey[300]),
-                              //child: Text('Agree to terms and conditions'),
-                              child: isvisible
-                                  ? Icon(
-                                      Icons.check,
-                                      size: 15,
-                                      color: Colors.green[800],
-                                      //weight: 500,
-                                    )
-                                  : null,
-                            ),
-                            onTap: () {
-                              toggleIcon();
+            body: Form(
+              key: _formKey,
+              child: Container(
+                  width: double.maxFinite,
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 17.h, vertical: 32.v),
+                  child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                            padding: EdgeInsets.only(left: 2.h),
+                            child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Container(
+                                      height: 47.adaptSize,
+                                      width: 47.adaptSize,
+                                      decoration: BoxDecoration(
+                                          color: appTheme.redA100,
+                                          borderRadius:
+                                              BorderRadius.circular(23.h))),
+                                  Padding(
+                                      padding: EdgeInsets.only(
+                                          left: 17.h, top: 12.v, bottom: 13.v),
+                                      child: Text("South Indian Bank ",
+                                          style: CustomTextStyles
+                                              .bodyLargeBlack90003))
+                                ])),
+                        Padding(
+                            padding: EdgeInsets.only(top: 19.v),
+                            child: Divider(
+                                color: appTheme.black90003.withOpacity(0.2),
+                                indent: 2.h)),
+                        CustomTextFormField(
+                            controller: amountController,
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'This cannot be empty';
+                              }
+                              return null;
                             },
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(left: 15),
-                            child: Text("Agree to terms and conditions"),
-                          )
-                        ],
-                      ),
-                      Spacer(),
-                      CustomElevatedButton(
+                            margin: EdgeInsets.only(
+                                left: 2.h, top: 18.v, right: 27.h),
+                            hintText: "Amount",
+                            hintStyle: theme.textTheme.bodyLarge!,
+                            borderDecoration: TextFormFieldStyleHelper.fillRed,
+                            fillColor: appTheme.red50),
+                        CustomTextFormField(
+                            controller: dateController,
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'This cannot be empty';
+                              }
+                              return null;
+                            },
+                            margin: EdgeInsets.only(
+                                left: 2.h, top: 86.v, right: 26.h),
+                            hintText: "Date",
+                            hintStyle: theme.textTheme.bodyLarge!,
+                            textInputAction: TextInputAction.done,
+                            borderDecoration: TextFormFieldStyleHelper.fillRed,
+                            fillColor: appTheme.red50),
+                        SizedBox(height: 45.v),
+                        // CustomCheckboxButton(
+                        //     text: "I agree to terms and condition  ",
+                        //     value: agreementText,
+                        //     onChange: (value) {
+                        //       agreementText = value;
+                        //     }),
+                        Row(
+                          children: [
+                            InkWell(
+                              child: Container(
+                                width: 18.0,
+                                height: 18.0,
+                                decoration:
+                                    BoxDecoration(color: Colors.grey[300]),
+                                //child: Text('Agree to terms and conditions'),
+                                child: isvisible
+                                    ? Icon(
+                                        Icons.check,
+                                        size: 15,
+                                        color: Colors.green[800],
+                                        //weight: 500,
+                                      )
+                                    : null,
+                              ),
+                              onTap: () {
+                                toggleIcon();
+                              },
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 15),
+                              child: Text("Agree to terms and conditions"),
+                            )
+                          ],
+                        ),
+                        Spacer(),
+                        CustomElevatedButton(
                           text: "Submit",
                           margin: EdgeInsets.only(
                               left: 39.h, right: 39.h, bottom: 68.v),
                           onTap: () {
-                            onTapSubmit(context);
+                            // onTapSubmit(context);
+                            if (_formKey.currentState!.validate()) {
+                              onTapSubmit(context);
+                            }
                           },
-                          alignment: Alignment.center)
-                    ])),
+                          alignment: Alignment.center,
+                        )
+                      ])),
+            ),
             bottomNavigationBar:
                 CustomBottomBar(onChanged: (BottomBarEnum type) {})));
   }

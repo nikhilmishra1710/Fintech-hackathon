@@ -10,9 +10,15 @@ import 'package:tanisha_s_application14/widgets/custom_icon_button.dart';
 import 'package:tanisha_s_application14/widgets/custom_text_form_field.dart';
 
 // ignore_for_file: must_be_immutable
-class PayBillScreen extends StatelessWidget {
+class PayBillScreen extends StatefulWidget {
   PayBillScreen({Key? key}) : super(key: key);
 
+  @override
+  State<PayBillScreen> createState() => _PayBillScreenState();
+}
+
+class _PayBillScreenState extends State<PayBillScreen> {
+  bool passwordVisible = false;
   GlobalKey<NavigatorState> navigatorKey = GlobalKey();
 
   String radioGroup = "";
@@ -467,48 +473,103 @@ class PayBillScreen extends StatelessWidget {
                                     SizedBox(height: 8.v),
                                     CustomTextFormField(
                                         controller: nameController,
+                                        validator: (value) {
+                                          if (value == null || value.isEmpty) {
+                                            return 'Name cannot be empty';
+                                          }
+                                          return null;
+                                        },
                                         hintText: "Company Name",
                                         hintStyle: theme.textTheme.bodyLarge!),
                                     SizedBox(height: 9.v),
                                     CustomTextFormField(
                                         controller: referenceController,
+                                        validator: (value) {
+                                          if (value == null || value.isEmpty) {
+                                            return 'Reference Number cannot be empty';
+                                          }
+                                          if (value.length != 12) {
+                                            return 'Reference Number must be 12  digits';
+                                          }
+                                          return null;
+                                        },
                                         hintText: "Reference Number",
                                         hintStyle:
                                             CustomTextStyles.bodyLargeGray50001,
                                         textInputType: TextInputType.number),
                                     SizedBox(height: 9.v),
                                     CustomTextFormField(
-                                        controller: checkmarkController,
-                                        hintText: "Pasword",
-                                        hintStyle:
-                                            CustomTextStyles.bodyLargeGray50001,
-                                        textInputAction: TextInputAction.done,
-                                        textInputType:
-                                            TextInputType.visiblePassword,
-                                        suffix: Container(
-                                            margin: EdgeInsets.fromLTRB(
-                                                30.h, 21.v, 23.h, 20.v),
-                                            child: CustomImageView(
-                                                svgPath: ImageConstant
-                                                    .imgCheckmarkSecondarycontainer17x22)),
-                                        suffixConstraints:
-                                            BoxConstraints(maxHeight: 60.v),
-                                        obscureText: true,
-                                        contentPadding: EdgeInsets.only(
-                                            left: 24.h,
-                                            top: 20.v,
-                                            bottom: 20.v),
-                                        borderDecoration:
-                                            TextFormFieldStyleHelper
-                                                .fillGrayTL7,
-                                        fillColor: appTheme.gray50001
-                                            .withOpacity(0.15)),
+                                      controller: checkmarkController,
+                                      hintText: "Pasword",
+                                      hintStyle:
+                                          CustomTextStyles.bodyLargeGray50001,
+                                      textInputAction: TextInputAction.done,
+                                      textInputType:
+                                          TextInputType.visiblePassword,
+                                      // suffix: Container(
+                                      //     margin: EdgeInsets.fromLTRB(
+                                      //         30.h, 21.v, 23.h, 20.v),
+                                      //     child: CustomImageView(
+                                      //         svgPath: ImageConstant
+                                      //             .imgCheckmarkSecondarycontainer17x22)),
+                                      // suffixConstraints:
+                                      //     BoxConstraints(maxHeight: 60.v),
+                                      // obscureText: true,
+                                      // contentPadding: EdgeInsets.only(
+                                      //     left: 24.h,
+                                      //     top: 20.v,
+                                      //     bottom: 20.v),
+                                      // borderDecoration:
+                                      //     TextFormFieldStyleHelper
+                                      //         .fillGrayTL7,
+                                      // fillColor: appTheme.gray50001
+                                      //     .withOpacity(0.15)
+                                      suffix: GestureDetector(
+                                        onTap: () {
+                                          setState(() {
+                                            passwordVisible = !passwordVisible;
+                                          });
+                                        },
+                                        child: Container(
+                                          margin: EdgeInsets.fromLTRB(
+                                              30.h, 20.v, 13.h, 20.v),
+                                          child: Icon(
+                                            passwordVisible
+                                                ? Icons.visibility
+                                                : Icons.visibility_off,
+                                            color: appTheme.pink200,
+                                          ),
+                                        ),
+                                      ),
+                                      obscureText: !passwordVisible,
+                                      contentPadding: EdgeInsets.only(
+                                        left: 20.h,
+                                        top: 22.v,
+                                        bottom: 22.v,
+                                      ),
+                                      borderDecoration: TextFormFieldStyleHelper
+                                          .outlinePrimaryTL7,
+                                      fillColor: appTheme.whiteA700,
+                                      validator: (value) {
+                                        if (value == null || value.isEmpty) {
+                                          return 'Password cannot be empty';
+                                        }
+                                        if (value.length < 6) {
+                                          return 'Password must be at least 6 characters long';
+                                        }
+                                        return null;
+                                      },
+                                    ),
                                     CustomElevatedButton(
                                         text: "Next",
                                         margin: EdgeInsets.only(
                                             left: 26.h, top: 36.v, right: 26.h),
                                         onTap: () {
-                                          onTapNext(context);
+                                          //onTapNext(context);
+                                          if (_formKey.currentState!
+                                              .validate()) {
+                                            onTapNext(context);
+                                          }
                                         })
                                   ]))))
                     ]))),

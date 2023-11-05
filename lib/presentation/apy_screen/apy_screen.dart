@@ -130,12 +130,27 @@ class ApyScreen extends StatelessWidget {
                                         fillColor:
                                             Color(0XFFA4A9AE).withOpacity(0.15),
                                         controller: nameController,
+                                        validator: (value) {
+                                          if (value == null || value.isEmpty) {
+                                            return 'Name cannot be empty';
+                                          }
+                                          return null;
+                                        },
                                         margin: EdgeInsets.only(
                                             left: 3.h, top: 22.v, right: 3.h),
                                         hintText: "Name",
                                         hintStyle: theme.textTheme.bodyLarge!),
                                     CustomTextFormField(
                                         controller: mobileNumberController,
+                                        validator: (value) {
+                                          if (value == null || value.isEmpty) {
+                                            return 'Mobile Number cannot be empty';
+                                          }
+                                          if (value.length != 10) {
+                                            return 'Mobile Number must be 10 digits';
+                                          }
+                                          return null;
+                                        },
                                         fillColor:
                                             Color(0XFFA4A9AE).withOpacity(0.15),
                                         margin: EdgeInsets.only(
@@ -145,6 +160,12 @@ class ApyScreen extends StatelessWidget {
                                         textInputType: TextInputType.phone),
                                     CustomTextFormField(
                                         controller: gendervalueoneController,
+                                        validator: (value) {
+                                          if (value == null || value.isEmpty) {
+                                            return 'This cannot be empty';
+                                          }
+                                          return null;
+                                        },
                                         fillColor:
                                             Color(0XFFA4A9AE).withOpacity(0.15),
                                         margin: EdgeInsets.only(
@@ -153,15 +174,15 @@ class ApyScreen extends StatelessWidget {
                                         hintStyle: theme.textTheme.bodyLarge!),
                                     CustomTextFormField(
                                         controller: adharnumberoneController,
-                                        fillColor:
-                                            Color(0XFFA4A9AE).withOpacity(0.15),
-                                        margin: EdgeInsets.only(
-                                            left: 3.h, top: 23.v, right: 3.h),
-                                        hintText: "Adhara number ",
-                                        hintStyle: theme.textTheme.bodyLarge!,
-                                        textInputType: TextInputType.number),
-                                    CustomTextFormField(
-                                        controller: adharnumberController,
+                                        validator: (value) {
+                                          if (value == null || value.isEmpty) {
+                                            return 'Aadhar Number cannot be empty';
+                                          }
+                                          if (value.length != 12) {
+                                            return 'Aadhar Number must be 12 digits';
+                                          }
+                                          return null;
+                                        },
                                         fillColor:
                                             Color(0XFFA4A9AE).withOpacity(0.15),
                                         margin: EdgeInsets.only(
@@ -171,21 +192,18 @@ class ApyScreen extends StatelessWidget {
                                         textInputType: TextInputType.number),
                                     CustomTextFormField(
                                         controller: maritalstatusController,
+                                        validator: (value) {
+                                          if (value == null || value.isEmpty) {
+                                            return 'This cannot be empty';
+                                          }
+                                          return null;
+                                        },
                                         fillColor:
                                             Color(0XFFA4A9AE).withOpacity(0.15),
                                         margin: EdgeInsets.only(
                                             left: 3.h, top: 23.v, right: 3.h),
                                         hintText: "Marital Status",
                                         hintStyle: theme.textTheme.bodyLarge!),
-                                    CustomTextFormField(
-                                        controller: adharnumberController1,
-                                        fillColor:
-                                            Color(0XFFA4A9AE).withOpacity(0.15),
-                                        margin: EdgeInsets.only(
-                                            left: 3.h, top: 23.v, right: 3.h),
-                                        hintText: "Adhara number ",
-                                        hintStyle: theme.textTheme.bodyLarge!,
-                                        textInputType: TextInputType.number),
                                     SizedBox(height: 26.v),
                                     Align(
                                         alignment: Alignment.centerLeft,
@@ -194,6 +212,12 @@ class ApyScreen extends StatelessWidget {
                                                 .titleMediumBluegray90019)),
                                     CustomTextFormField(
                                         controller: accountnumberController,
+                                        validator: (value) {
+                                          if (value == null || value.isEmpty) {
+                                            return 'This cannot be empty';
+                                          }
+                                          return null;
+                                        },
                                         fillColor:
                                             Color(0XFFA4A9AE).withOpacity(0.15),
                                         margin: EdgeInsets.only(
@@ -203,6 +227,15 @@ class ApyScreen extends StatelessWidget {
                                         textInputType: TextInputType.number),
                                     CustomTextFormField(
                                         controller: ifsecodeoneController,
+                                        validator: (value) {
+                                          if (value == null || value.isEmpty) {
+                                            return 'IFSC code cannot be empty';
+                                          }
+                                          if (value.length != 11) {
+                                            return 'Ifsc code must be 11 digits';
+                                          }
+                                          return null;
+                                        },
                                         fillColor:
                                             Color(0XFFA4A9AE).withOpacity(0.15),
                                         margin: EdgeInsets.only(
@@ -217,6 +250,20 @@ class ApyScreen extends StatelessWidget {
                                           Expanded(
                                               child: CustomTextFormField(
                                                   controller: amountController,
+                                                  validator: (value) {
+                                                    if (value == null ||
+                                                        value.isEmpty) {
+                                                      return 'Amount cannot be empty';
+                                                    }
+
+                                                    if (double.tryParse(
+                                                            value) ==
+                                                        null) {
+                                                      return 'Please enter a valid number';
+                                                    }
+
+                                                    return null;
+                                                  },
                                                   fillColor: Color(0XFFA4A9AE)
                                                       .withOpacity(0.15),
                                                   margin: EdgeInsets.only(
@@ -280,6 +327,12 @@ class ApyScreen extends StatelessWidget {
                                                     .titleMediumBluegray90019))),
                                     CustomTextFormField(
                                         controller: nameController1,
+                                        validator: (value) {
+                                          if (value == null || value.isEmpty) {
+                                            return 'This cannot be empty';
+                                          }
+                                          return null;
+                                        },
                                         fillColor:
                                             Color(0XFFA4A9AE).withOpacity(0.15),
                                         margin: EdgeInsets.only(
@@ -290,6 +343,12 @@ class ApyScreen extends StatelessWidget {
                                             horizontal: 4.h, vertical: 19.v)),
                                     CustomTextFormField(
                                         controller: dateOfBirthController,
+                                        validator: (value) {
+                                          if (value == null || value.isEmpty) {
+                                            return 'This cannot be empty';
+                                          }
+                                          return null;
+                                        },
                                         fillColor:
                                             Color(0XFFA4A9AE).withOpacity(0.15),
                                         margin: EdgeInsets.only(
@@ -300,11 +359,17 @@ class ApyScreen extends StatelessWidget {
                                         contentPadding: EdgeInsets.symmetric(
                                             horizontal: 4.h, vertical: 19.v)),
                                     CustomElevatedButton(
-                                        text: "Submit",
-                                        margin: EdgeInsets.only(
-                                            left: 29.h, top: 26.v, right: 29.h),
-                                        buttonTextStyle:
-                                            CustomTextStyles.titleLargeBlack900)
+                                      text: "Submit",
+                                      margin: EdgeInsets.only(
+                                          left: 29.h, top: 26.v, right: 29.h),
+                                      buttonTextStyle:
+                                          CustomTextStyles.titleLargeBlack900,
+                                      onTap: () {
+                                        if (_formKey.currentState!.validate()) {
+                                          onTapSend(context);
+                                        }
+                                      },
+                                    )
                                   ]))))
                     ]))),
             bottomNavigationBar:
@@ -317,5 +382,9 @@ class ApyScreen extends StatelessWidget {
   /// to navigate back to the previous screen.
   onTapArrowleftone(BuildContext context) {
     Navigator.pop(context);
+  }
+
+  onTapSend(BuildContext context) {
+    Navigator.pushNamed(context, AppRoutes.dashboardScreen);
   }
 }

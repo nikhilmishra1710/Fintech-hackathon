@@ -12,6 +12,7 @@ class KycUpdateDrivinfLicenceScreen extends StatelessWidget {
   KycUpdateDrivinfLicenceScreen({Key? key}) : super(key: key);
 
   GlobalKey<NavigatorState> navigatorKey = GlobalKey();
+  GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -35,58 +36,91 @@ class KycUpdateDrivinfLicenceScreen extends StatelessWidget {
                       margin: EdgeInsets.only(
                           left: 29.h, right: 29.h, bottom: 18.v))
                 ]),
-            body: Container(
-                width: double.maxFinite,
-                padding: EdgeInsets.symmetric(horizontal: 45.h, vertical: 21.v),
-                child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      CustomImageView(
-                          svgPath: ImageConstant.imgFrame8018,
-                          height: 225.v,
-                          width: 322.h,
-                          margin: EdgeInsets.only(left: 8.h)),
-                      CustomElevatedButton(
-                          text: "Browse from Storage",
-                          margin: EdgeInsets.only(top: 89.v, right: 22.h)),
-                      Container(
-                          height: 62.v,
-                          width: 314.h,
-                          margin: EdgeInsets.only(left: 2.h, top: 72.v),
-                          child:
-                              Stack(alignment: Alignment.bottomLeft, children: [
-                            Align(
-                                alignment: Alignment.topCenter,
-                                child: Container(
-                                    height: 60.v,
-                                    width: 314.h,
-                                    decoration: BoxDecoration(
-                                        color: appTheme.gray50001
-                                            .withOpacity(0.15),
-                                        borderRadius:
-                                            BorderRadius.circular(10.h)))),
-                            Align(
+            body: Form(
+              key: _formKey,
+              child: Container(
+                  width: double.maxFinite,
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 45.h, vertical: 21.v),
+                  child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        CustomImageView(
+                            svgPath: ImageConstant.imgFrame8018,
+                            height: 225.v,
+                            width: 322.h,
+                            margin: EdgeInsets.only(left: 8.h)),
+                        CustomElevatedButton(
+                            text: "Browse from Storage",
+                            margin: EdgeInsets.only(top: 89.v, right: 22.h)),
+                        Container(
+                            height: 62.v,
+                            width: 314.h,
+                            margin: EdgeInsets.only(left: 2.h, top: 72.v),
+                            child: Stack(
                                 alignment: Alignment.bottomLeft,
-                                child: Container(
-                                    width: 206.h,
-                                    margin: EdgeInsets.only(left: 50.h),
-                                    child: Text(
-                                        "KYC Update _ Driving\n Licence",
-                                        maxLines: 2,
-                                        overflow: TextOverflow.ellipsis,
-                                        style: CustomTextStyles
+                                children: [
+                                  Align(
+                                      alignment: Alignment.topCenter,
+                                      child: Container(
+                                          height: 60.v,
+                                          width: 314.h,
+                                          decoration: BoxDecoration(
+                                              color: appTheme.gray50001
+                                                  .withOpacity(0.15),
+                                              borderRadius:
+                                                  BorderRadius.circular(
+                                                      10.h)))),
+                                  Align(
+                                    alignment: Alignment.bottomLeft,
+                                    // child: Container(
+                                    //     width: 206.h,
+                                    //     margin: EdgeInsets.only(left: 50.h),
+                                    //     child: Text(
+                                    //         "KYC Update _ Driving\n Licence",
+                                    //         maxLines: 2,
+                                    //         overflow: TextOverflow.ellipsis,
+                                    //         style: CustomTextStyles
+                                    //             .titleLargeBluegray100
+                                    //             .copyWith(height: 1.47)))
+                                    child: TextFormField(
+                                      controller: TextEditingController(),
+                                      // You can provide a controller if needed
+                                      validator: (value) {
+                                        if (value == null || value.isEmpty) {
+                                          return 'This cannot be empty';
+                                        }
+                                        if (value.length < 7 &&
+                                            value.length > 12) {
+                                          return 'Invalid format';
+                                        }
+                                        return null;
+                                      },
+                                      readOnly:
+                                          true, // Make it read-only to prevent user input
+                                      decoration: InputDecoration(
+                                        labelText:
+                                            "KYC Update - Driving Licence",
+                                        labelStyle: CustomTextStyles
                                             .titleLargeBluegray100
-                                            .copyWith(height: 1.47))))
-                          ])),
-                      CustomElevatedButton(
-                        text: "Submit",
-                        margin: EdgeInsets.fromLTRB(8.h, 69.v, 14.h, 5.v),
-                        alignment: Alignment.center,
-                        onTap: () {
-                          onTapkydrcon(context);
-                        },
-                      )
-                    ])),
+                                            .copyWith(height: 1.47),
+                                      ),
+                                    ),
+                                  )
+                                ])),
+                        CustomElevatedButton(
+                          text: "Submit",
+                          margin: EdgeInsets.fromLTRB(8.h, 69.v, 14.h, 5.v),
+                          alignment: Alignment.center,
+                          onTap: () {
+                            // onTapkydrcon(context);
+                            if (_formKey.currentState!.validate()) {
+                              onTapkydrcon(context);
+                            }
+                          },
+                        )
+                      ])),
+            ),
             bottomNavigationBar:
                 CustomBottomBar(onChanged: (BottomBarEnum type) {})));
   }

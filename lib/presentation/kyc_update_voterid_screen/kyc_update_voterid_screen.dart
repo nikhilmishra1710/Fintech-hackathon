@@ -17,6 +17,7 @@ class KycUpdateVoteridScreen extends StatelessWidget {
   TextEditingController group183Controller = TextEditingController();
 
   TextEditingController dateController = TextEditingController();
+  GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -39,38 +40,53 @@ class KycUpdateVoteridScreen extends StatelessWidget {
                       svgPath: ImageConstant.imgCheckmark,
                       margin: EdgeInsets.fromLTRB(27.h, 4.v, 29.h, 4.v))
                 ]),
-            body: Container(
-                width: double.maxFinite,
-                padding: EdgeInsets.symmetric(horizontal: 52.h),
-                child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      CustomTextFormField(
-                          controller: group183Controller,
-                          suffix: SizedBox(
-                              child: CustomImageView(
-                                  svgPath: ImageConstant.imgFrame8018)),
-                          suffixConstraints: BoxConstraints(maxHeight: 225.v),
-                          borderDecoration: TextFormFieldStyleHelper.custom,
-                          filled: false),
-                      CustomElevatedButton(
-                          text: "Browse from Storage",
-                          margin: EdgeInsets.only(
-                              left: 3.h, top: 69.v, right: 3.h)),
-                      CustomTextFormField(
-                          controller: dateController,
-                          margin:
-                              EdgeInsets.only(left: 3.h, top: 69.v, right: 3.h),
-                          hintText: "KYC Update _ Voter ID",
-                          textInputAction: TextInputAction.done),
-                      CustomElevatedButton(
-                        text: "Submit",
-                        margin: EdgeInsets.fromLTRB(3.h, 69.v, 3.h, 4.v),
-                        onTap: () {
-                          onTapkyupcon(context);
-                        },
-                      )
-                    ])),
+            body: Form(
+              key: _formKey,
+              child: Container(
+                  width: double.maxFinite,
+                  padding: EdgeInsets.symmetric(horizontal: 52.h),
+                  child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        CustomTextFormField(
+                            controller: group183Controller,
+                            suffix: SizedBox(
+                                child: CustomImageView(
+                                    svgPath: ImageConstant.imgFrame8018)),
+                            suffixConstraints: BoxConstraints(maxHeight: 225.v),
+                            borderDecoration: TextFormFieldStyleHelper.custom,
+                            filled: false),
+                        CustomElevatedButton(
+                            text: "Browse from Storage",
+                            margin: EdgeInsets.only(
+                                left: 3.h, top: 69.v, right: 3.h)),
+                        CustomTextFormField(
+                            controller: dateController,
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return ' Voter Id cannot be empty';
+                              }
+                              if (value.length != 10) {
+                                return 'Voter Id must be 10 digits';
+                              }
+                              return null;
+                            },
+                            margin: EdgeInsets.only(
+                                left: 3.h, top: 69.v, right: 3.h),
+                            hintText: "KYC Update _ Voter ID",
+                            textInputAction: TextInputAction.done),
+                        CustomElevatedButton(
+                          text: "Submit",
+                          margin: EdgeInsets.fromLTRB(3.h, 69.v, 3.h, 4.v),
+                          onTap: () {
+                            //onTapkyupcon(context);
+                            if (_formKey.currentState!.validate()) {
+                              onTapkyupcon(context);
+                            }
+                          },
+                        )
+                      ])),
+            ),
             bottomNavigationBar:
                 CustomBottomBar(onChanged: (BottomBarEnum type) {})));
   }

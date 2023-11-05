@@ -1,7 +1,6 @@
-import 'package:tanisha_s_application14/presentation/person_to_persontransfer_amount_screen/person_to_persontransfer_amount_screen.dart';
-
 import 'package:flutter/material.dart';
 import 'package:tanisha_s_application14/core/app_export.dart';
+import 'package:tanisha_s_application14/presentation/person_to_persontransfer_amount_screen/person_to_persontransfer_amount_screen.dart';
 import 'package:tanisha_s_application14/widgets/app_bar/appbar_image.dart';
 import 'package:tanisha_s_application14/widgets/app_bar/appbar_image_1.dart';
 import 'package:tanisha_s_application14/widgets/app_bar/appbar_subtitle_2.dart';
@@ -109,167 +108,15 @@ class MoneyTransferScreen extends StatelessWidget {
                                                     .titleMediumBluegray90019)),
                                         SizedBox(
                                           height: 140.v,
-                                          //child:
-                                          //  ListView.separated(
-                                          //     padding: EdgeInsets.only(
-                                          //         left: 8.h,
-                                          //         top: 18.v,
-                                          //         right: 8.h),
-                                          //     scrollDirection:
-                                          //         Axis.horizontal,
-                                          //     separatorBuilder:
-                                          //         (context, index) {
-                                          //       return SizedBox(width: 8.h);
-                                          //     },
-                                          //     itemCount: 3,
-                                          //     itemBuilder: (context, index) {
-                                          //       return UserprofileItemWidget();
-                                          //     })
                                           child: Row(
                                             children: [
-                                              Container(
-                                                padding: EdgeInsets.symmetric(
-                                                  horizontal: 19.h,
-                                                  vertical: 11.v,
-                                                ),
-                                                decoration: AppDecoration
-                                                    .outlineBluegray500111
-                                                    .copyWith(
-                                                  borderRadius:
-                                                      BorderRadiusStyle
-                                                          .roundedBorder10,
-                                                ),
-                                                width: 112.h,
-                                                child: Column(
-                                                  mainAxisSize:
-                                                      MainAxisSize.min,
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.center,
-                                                  children: [
-                                                    CustomImageView(
-                                                      imagePath: ImageConstant
-                                                          .imgEllipse174,
-                                                      height: 51.adaptSize,
-                                                      width: 51.adaptSize,
-                                                      radius:
-                                                          BorderRadius.circular(
-                                                        25.h,
-                                                      ),
-                                                      alignment:
-                                                          Alignment.center,
-                                                    ),
-                                                    Padding(
-                                                      padding: EdgeInsets.only(
-                                                        left: 9.h,
-                                                        top: 10.v,
-                                                      ),
-                                                      child: Text(
-                                                        "Dr. Kamal",
-                                                        style: CustomTextStyles
-                                                            .labelLargeGray5000113,
-                                                      ),
-                                                    ),
-                                                    SizedBox(height: 2.v),
-                                                    RichText(
-                                                      text: TextSpan(
-                                                        children: [
-                                                          TextSpan(
-                                                            text: "40.00",
-                                                            style: CustomTextStyles
-                                                                .bodyLargeBluegray90016_1,
-                                                          ),
-                                                          TextSpan(
-                                                            text: "INR",
-                                                            style: CustomTextStyles
-                                                                .bodySmallGray50001,
-                                                          ),
-                                                        ],
-                                                      ),
-                                                      textAlign: TextAlign.left,
-                                                    ),
-                                                    SizedBox(height: 3.v),
-                                                  ],
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding: const EdgeInsets.only(
-                                                    left: 15),
-                                                child: Container(
-                                                  padding: EdgeInsets.symmetric(
-                                                    horizontal: 19.h,
-                                                    vertical: 11.v,
-                                                  ),
-                                                  decoration: AppDecoration
-                                                      .outlinePrimary1
-                                                      .copyWith(
-                                                    borderRadius:
-                                                        BorderRadiusStyle
-                                                            .roundedBorder10,
-                                                  ),
-                                                  width: 112.h,
-                                                  child: Column(
-                                                    mainAxisSize:
-                                                        MainAxisSize.min,
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .start,
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .center,
-                                                    children: [
-                                                      CustomImageView(
-                                                        imagePath: ImageConstant
-                                                            .imgEllipse1753,
-                                                        height: 51.adaptSize,
-                                                        width: 51.adaptSize,
-                                                        radius: BorderRadius
-                                                            .circular(
-                                                          25.h,
-                                                        ),
-                                                        alignment:
-                                                            Alignment.center,
-                                                      ),
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsets.only(
-                                                          left: 9.h,
-                                                          top: 10.v,
-                                                        ),
-                                                        child: Text(
-                                                          "Jonathon",
-                                                          style: CustomTextStyles
-                                                              .labelLargeGray5000113,
-                                                        ),
-                                                      ),
-                                                      SizedBox(height: 2.v),
-                                                      RichText(
-                                                        text: TextSpan(
-                                                          children: [
-                                                            TextSpan(
-                                                              text: "70.00",
-                                                              style: CustomTextStyles
-                                                                  .bodyLargeBluegray90016_1,
-                                                            ),
-                                                            TextSpan(
-                                                              text: "INR",
-                                                              style: CustomTextStyles
-                                                                  .bodySmallGray50001,
-                                                            ),
-                                                          ],
-                                                        ),
-                                                        textAlign:
-                                                            TextAlign.left,
-                                                      ),
-                                                      SizedBox(height: 3.v),
-                                                    ],
-                                                  ),
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding: const EdgeInsets.only(
-                                                    left: 15),
+                                              GestureDetector(
+                                                onTap: () {
+                                                  Navigator.pushNamed(
+                                                      context,
+                                                      AppRoutes
+                                                          .moneyTransferScreen);
+                                                },
                                                 child: Container(
                                                   padding: EdgeInsets.symmetric(
                                                     horizontal: 19.h,
@@ -295,7 +142,7 @@ class MoneyTransferScreen extends StatelessWidget {
                                                     children: [
                                                       CustomImageView(
                                                         imagePath: ImageConstant
-                                                            .imgEllipse176,
+                                                            .imgEllipse174,
                                                         height: 51.adaptSize,
                                                         width: 51.adaptSize,
                                                         radius: BorderRadius
@@ -312,7 +159,7 @@ class MoneyTransferScreen extends StatelessWidget {
                                                           top: 10.v,
                                                         ),
                                                         child: Text(
-                                                          "Will Hopper",
+                                                          "Dr. Kamal",
                                                           style: CustomTextStyles
                                                               .labelLargeGray5000113,
                                                         ),
@@ -322,7 +169,7 @@ class MoneyTransferScreen extends StatelessWidget {
                                                         text: TextSpan(
                                                           children: [
                                                             TextSpan(
-                                                              text: "400.00",
+                                                              text: "40.00",
                                                               style: CustomTextStyles
                                                                   .bodyLargeBluegray90016_1,
                                                             ),
@@ -338,6 +185,175 @@ class MoneyTransferScreen extends StatelessWidget {
                                                       ),
                                                       SizedBox(height: 3.v),
                                                     ],
+                                                  ),
+                                                ),
+                                              ),
+                                              GestureDetector(
+                                                onTap: () {
+                                                  Navigator.pushNamed(
+                                                      context,
+                                                      AppRoutes
+                                                          .moneyTransferScreen);
+                                                },
+                                                child: Padding(
+                                                  padding:
+                                                      const EdgeInsets.only(
+                                                          left: 15),
+                                                  child: Container(
+                                                    padding:
+                                                        EdgeInsets.symmetric(
+                                                      horizontal: 19.h,
+                                                      vertical: 11.v,
+                                                    ),
+                                                    decoration: AppDecoration
+                                                        .outlinePrimary1
+                                                        .copyWith(
+                                                      borderRadius:
+                                                          BorderRadiusStyle
+                                                              .roundedBorder10,
+                                                    ),
+                                                    width: 112.h,
+                                                    child: Column(
+                                                      mainAxisSize:
+                                                          MainAxisSize.min,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .center,
+                                                      children: [
+                                                        CustomImageView(
+                                                          imagePath: ImageConstant
+                                                              .imgEllipse1753,
+                                                          height: 51.adaptSize,
+                                                          width: 51.adaptSize,
+                                                          radius: BorderRadius
+                                                              .circular(
+                                                            25.h,
+                                                          ),
+                                                          alignment:
+                                                              Alignment.center,
+                                                        ),
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsets.only(
+                                                            left: 9.h,
+                                                            top: 10.v,
+                                                          ),
+                                                          child: Text(
+                                                            "Jonathon",
+                                                            style: CustomTextStyles
+                                                                .labelLargeGray5000113,
+                                                          ),
+                                                        ),
+                                                        SizedBox(height: 2.v),
+                                                        RichText(
+                                                          text: TextSpan(
+                                                            children: [
+                                                              TextSpan(
+                                                                text: "70.00",
+                                                                style: CustomTextStyles
+                                                                    .bodyLargeBluegray90016_1,
+                                                              ),
+                                                              TextSpan(
+                                                                text: "INR",
+                                                                style: CustomTextStyles
+                                                                    .bodySmallGray50001,
+                                                              ),
+                                                            ],
+                                                          ),
+                                                          textAlign:
+                                                              TextAlign.left,
+                                                        ),
+                                                        SizedBox(height: 3.v),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                              GestureDetector(
+                                                onTap: () {
+                                                  Navigator.pushNamed(
+                                                      context,
+                                                      AppRoutes
+                                                          .moneyTransferScreen);
+                                                },
+                                                child: Padding(
+                                                  padding:
+                                                      const EdgeInsets.only(
+                                                          left: 15),
+                                                  child: Container(
+                                                    padding:
+                                                        EdgeInsets.symmetric(
+                                                      horizontal: 19.h,
+                                                      vertical: 11.v,
+                                                    ),
+                                                    decoration: AppDecoration
+                                                        .outlineBluegray500111
+                                                        .copyWith(
+                                                      borderRadius:
+                                                          BorderRadiusStyle
+                                                              .roundedBorder10,
+                                                    ),
+                                                    width: 112.h,
+                                                    child: Column(
+                                                      mainAxisSize:
+                                                          MainAxisSize.min,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .center,
+                                                      children: [
+                                                        CustomImageView(
+                                                          imagePath:
+                                                              ImageConstant
+                                                                  .imgEllipse176,
+                                                          height: 51.adaptSize,
+                                                          width: 51.adaptSize,
+                                                          radius: BorderRadius
+                                                              .circular(
+                                                            25.h,
+                                                          ),
+                                                          alignment:
+                                                              Alignment.center,
+                                                        ),
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsets.only(
+                                                            left: 9.h,
+                                                            top: 10.v,
+                                                          ),
+                                                          child: Text(
+                                                            "Will Hopper",
+                                                            style: CustomTextStyles
+                                                                .labelLargeGray5000113,
+                                                          ),
+                                                        ),
+                                                        SizedBox(height: 2.v),
+                                                        RichText(
+                                                          text: TextSpan(
+                                                            children: [
+                                                              TextSpan(
+                                                                text: "400.00",
+                                                                style: CustomTextStyles
+                                                                    .bodyLargeBluegray90016_1,
+                                                              ),
+                                                              TextSpan(
+                                                                text: "INR",
+                                                                style: CustomTextStyles
+                                                                    .bodySmallGray50001,
+                                                              ),
+                                                            ],
+                                                          ),
+                                                          textAlign:
+                                                              TextAlign.left,
+                                                        ),
+                                                        SizedBox(height: 3.v),
+                                                      ],
+                                                    ),
                                                   ),
                                                 ),
                                               ),

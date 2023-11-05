@@ -96,8 +96,8 @@ class HealthInsurancePlansScreen extends StatelessWidget {
                                                                     .bodyMediumPink200)
                                                           ]))),
                                               CustomImageView(
-                                                  imagePath: ImageConstant
-                                                      .imgRectangle1469155x368,
+                                                  // imagePath: ImageConstant
+                                                  //     .imgRectangle1469155x368,
                                                   height: 155.v,
                                                   width: 368.h,
                                                   radius: BorderRadius.vertical(

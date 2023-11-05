@@ -1,4 +1,3 @@
-import '../dashboard_screen/widgets/userpayment_item_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg_provider/flutter_svg_provider.dart' as fs;
 import 'package:tanisha_s_application14/core/app_export.dart';
@@ -803,22 +802,25 @@ class DashboardScreen extends StatelessWidget {
                                                                       height:
                                                                           3.v),
                                                                   CustomIconButton(
-                                                                      height: 48
-                                                                          .v,
-                                                                      width: 46
-                                                                          .h,
-                                                                      padding: EdgeInsets
-                                                                          .all(12
-                                                                              .h),
-                                                                      decoration:
-                                                                          IconButtonStyleHelper
-                                                                              .outlineBlack,
-                                                                      alignment:
-                                                                          Alignment
-                                                                              .center,
-                                                                      child: CustomImageView(
-                                                                          svgPath:
-                                                                              ImageConstant.imgClockTealA70001)),
+                                                                    height:
+                                                                        48.v,
+                                                                    width: 46.h,
+                                                                    padding: EdgeInsets
+                                                                        .all(12
+                                                                            .h),
+                                                                    decoration:
+                                                                        IconButtonStyleHelper
+                                                                            .outlineBlack,
+                                                                    alignment:
+                                                                        Alignment
+                                                                            .center,
+                                                                    // child: CustomImageView(
+                                                                    //     svgPath:
+                                                                    //         ImageConstant.imgClockTealA70001)
+                                                                    child: const Icon(
+                                                                        Icons
+                                                                            .currency_rupee_rounded),
+                                                                  ),
                                                                   SizedBox(
                                                                       height:
                                                                           24.v),

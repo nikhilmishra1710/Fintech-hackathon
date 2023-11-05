@@ -1,7 +1,6 @@
-import 'package:tanisha_s_application14/presentation/marrige_transfer_confirmation_screen/marrige_transfer_confirmation_screen.dart';
-
 import 'package:flutter/material.dart';
 import 'package:tanisha_s_application14/core/app_export.dart';
+import 'package:tanisha_s_application14/presentation/marrige_transfer_confirmation_screen/marrige_transfer_confirmation_screen.dart';
 import 'package:tanisha_s_application14/widgets/app_bar/appbar_image.dart';
 import 'package:tanisha_s_application14/widgets/app_bar/appbar_image_1.dart';
 import 'package:tanisha_s_application14/widgets/app_bar/appbar_subtitle_2.dart';
@@ -241,7 +240,7 @@ class _GiftCardsScreenState extends State<GiftCardsScreen> {
                                           ),
                                           borderDecoration:
                                               TextFormFieldStyleHelper
-                                                  .fillWhiteA,
+                                                  .outlinePrimaryTL7,
                                           fillColor: appTheme.whiteA700,
                                           validator: (value) {
                                             if (value == null ||
@@ -319,120 +318,6 @@ class _GiftCardsScreenState extends State<GiftCardsScreen> {
                                           //         (index) =>
                                           //             ChipviewgroupseItemWidget())
                                           //             )
-                                          child: Row(
-                                            children: [
-                                              Padding(
-                                                padding: const EdgeInsets.only(
-                                                    left: 20),
-                                                child: RawChip(
-                                                  padding: EdgeInsets.symmetric(
-                                                    horizontal: 30.h,
-                                                    vertical: 11.v,
-                                                  ),
-                                                  showCheckmark: false,
-                                                  labelPadding: EdgeInsets.zero,
-                                                  label: Text(
-                                                    "100",
-                                                    style: TextStyle(
-                                                      color: theme.colorScheme
-                                                          .secondaryContainer,
-                                                      fontSize: 22.fSize,
-                                                      fontFamily: 'Arial',
-                                                      fontWeight:
-                                                          FontWeight.w700,
-                                                    ),
-                                                  ),
-                                                  selected: false,
-                                                  backgroundColor: appTheme
-                                                      .gray50001
-                                                      .withOpacity(0.15),
-                                                  selectedColor:
-                                                      appTheme.whiteA700,
-                                                  shape: RoundedRectangleBorder(
-                                                    side: BorderSide.none,
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                      7.h,
-                                                    ),
-                                                  ),
-                                                  onSelected: (value) {},
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding: const EdgeInsets.only(
-                                                    left: 20),
-                                                child: RawChip(
-                                                  padding: EdgeInsets.symmetric(
-                                                    horizontal: 30.h,
-                                                    vertical: 11.v,
-                                                  ),
-                                                  showCheckmark: false,
-                                                  labelPadding: EdgeInsets.zero,
-                                                  label: Text(
-                                                    "150",
-                                                    style: TextStyle(
-                                                      color: Colors.redAccent,
-                                                      fontSize: 22.fSize,
-                                                      fontFamily: 'Arial',
-                                                      fontWeight:
-                                                          FontWeight.w700,
-                                                    ),
-                                                  ),
-                                                  selected: false,
-                                                  backgroundColor: appTheme
-                                                      .gray50001
-                                                      .withOpacity(0.15),
-                                                  selectedColor:
-                                                      appTheme.whiteA700,
-                                                  shape: RoundedRectangleBorder(
-                                                    side: BorderSide.none,
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                      7.h,
-                                                    ),
-                                                  ),
-                                                  onSelected: (value) {},
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding: const EdgeInsets.only(
-                                                    left: 20),
-                                                child: RawChip(
-                                                  padding: EdgeInsets.symmetric(
-                                                    horizontal: 30.h,
-                                                    vertical: 11.v,
-                                                  ),
-                                                  showCheckmark: false,
-                                                  labelPadding: EdgeInsets.zero,
-                                                  label: Text(
-                                                    "200",
-                                                    style: TextStyle(
-                                                      color: theme.colorScheme
-                                                          .secondaryContainer,
-                                                      fontSize: 22.fSize,
-                                                      fontFamily: 'Arial',
-                                                      fontWeight:
-                                                          FontWeight.w700,
-                                                    ),
-                                                  ),
-                                                  selected: false,
-                                                  backgroundColor: appTheme
-                                                      .gray50001
-                                                      .withOpacity(0.15),
-                                                  selectedColor:
-                                                      appTheme.whiteA700,
-                                                  shape: RoundedRectangleBorder(
-                                                    side: BorderSide.none,
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                      7.h,
-                                                    ),
-                                                  ),
-                                                  onSelected: (value) {},
-                                                ),
-                                              )
-                                            ],
-                                          ),
                                         ),
                                         Padding(
                                             padding: EdgeInsets.only(

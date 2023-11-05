@@ -1,9 +1,8 @@
+import 'package:flutter/material.dart';
+import 'package:tanisha_s_application14/core/app_export.dart';
 import 'package:tanisha_s_application14/presentation/airtel_recharge_confirmation_screen/airtel_recharge_confirmation_screen.dart';
 import 'package:tanisha_s_application14/presentation/jio_recharge_confirmation_screen/jio_recharge_confirmation_screen.dart';
 import 'package:tanisha_s_application14/presentation/vi_recharge_confirmation_screen/vi_recharge_confirmation_screen.dart';
-
-import 'package:flutter/material.dart';
-import 'package:tanisha_s_application14/core/app_export.dart';
 import 'package:tanisha_s_application14/widgets/app_bar/appbar_image.dart';
 import 'package:tanisha_s_application14/widgets/app_bar/appbar_image_1.dart';
 import 'package:tanisha_s_application14/widgets/app_bar/appbar_subtitle_2.dart';
@@ -65,6 +64,15 @@ class MainRechargeScreen extends StatelessWidget {
                           SizedBox(height: 14.v),
                           CustomTextFormField(
                               controller: mobileNumberController,
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'Mobile Number cannot be empty';
+                                }
+                                if (value.length != 10) {
+                                  return 'Mobile Number must be 10 digits';
+                                }
+                                return null;
+                              },
                               fillColor: Color(0XFFA4A9AE).withOpacity(0.15),
                               hintText: "Mobile Number",
                               hintStyle: theme.textTheme.bodyLarge!,
@@ -208,150 +216,168 @@ class MainRechargeScreen extends StatelessWidget {
                               child: Text("Enter Amount",
                                   style: CustomTextStyles
                                       .titleMediumBluegray90019)),
-                          Container(
-                              margin: EdgeInsets.only(left: 1.h, top: 12.v),
-                              padding: EdgeInsets.symmetric(
-                                  horizontal: 128.h, vertical: 15.v),
-                              decoration: AppDecoration.outlinePrimary1
-                                  .copyWith(
-                                      borderRadius:
-                                          BorderRadiusStyle.roundedBorder5),
-                              child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsets.only(bottom: 1.v),
-                                      // child: Text("250.00",
-                                      //     style: CustomTextStyles
-                                      //         .headlineMediumPrimary28)
-                                      child: CustomTextFormField(
-                                        controller: amountController,
-                                        textStyle: CustomTextStyles
-                                            .headlineMediumPrimary28,
-                                      ),
-                                    ),
-                                    Padding(
-                                        padding: EdgeInsets.only(right: 2.h),
-                                        child: SizedBox(
-                                            height: 35.v,
-                                            child: VerticalDivider(
-                                                width: 1.h,
-                                                thickness: 1.v,
-                                                color:
-                                                    theme.colorScheme.primary)))
-                                  ])),
+                          // Container(
+                          //     margin: EdgeInsets.only(left: 1.h, top: 12.v),
+                          //     padding: EdgeInsets.symmetric(
+                          //         horizontal: 128.h, vertical: 15.v),
+                          //     decoration: AppDecoration.outlinePrimary1
+                          //         .copyWith(
+                          //             borderRadius:
+                          //                 BorderRadiusStyle.roundedBorder5),
+                          //     child: Row(
+                          //         mainAxisAlignment:
+                          //             MainAxisAlignment.spaceBetween,
+                          //         children: [
+                          //           Padding(
+                          //             padding: EdgeInsets.only(bottom: 1.v),
+                          //             // child: Text("250.00",
+                          //             //     style: CustomTextStyles
+                          //             //         .headlineMediumPrimary28)
+                          //             child: CustomTextFormField(
+                          //               controller: amountController,
+                          //               textStyle: CustomTextStyles
+                          //                   .headlineMediumPrimary28,
+                          //             ),
+                          //           ),
+                          //           Padding(
+                          //               padding: EdgeInsets.only(right: 2.h),
+                          //               child: SizedBox(
+                          //                   height: 35.v,
+                          //                   child: VerticalDivider(
+                          //                       width: 1.h,
+                          //                       thickness: 1.v,
+                          //                       color:
+                          //                           theme.colorScheme.primary)))
+                          //         ])),
+                          CustomTextFormField(
+                              controller: amountController,
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'This cannot be empty';
+                                }
+
+                                return null;
+                              },
+                              fillColor: Color(0XFFA4A9AE).withOpacity(0.15),
+                              hintText: "Amount",
+                              hintStyle: theme.textTheme.bodyLarge!,
+                              textInputAction: TextInputAction.done,
+                              textInputType: TextInputType.number),
                           SizedBox(height: 19.v),
                           // Wrap(
                           //     runSpacing: 12.42.v,
                           //     spacing: 12.42.h,
                           //     children: List<Widget>.generate(
                           //         3, (index) => ChipviewgrouptwItemWidget())),
-                          Row(
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.only(left: 15.0),
-                                child: RawChip(
-                                  padding: EdgeInsets.symmetric(
-                                    horizontal: 30.h,
-                                    vertical: 11.v,
-                                  ),
-                                  showCheckmark: false,
-                                  labelPadding: EdgeInsets.zero,
-                                  label: Text(
-                                    "50",
-                                    style: TextStyle(
-                                      color:
-                                          theme.colorScheme.secondaryContainer,
-                                      fontSize: 22.fSize,
-                                      fontFamily: 'Arial',
-                                      fontWeight: FontWeight.w700,
-                                    ),
-                                  ),
-                                  selected: false,
-                                  backgroundColor:
-                                      appTheme.gray50001.withOpacity(0.15),
-                                  selectedColor: appTheme.whiteA700,
-                                  shape: RoundedRectangleBorder(
-                                    side: BorderSide.none,
-                                    borderRadius: BorderRadius.circular(
-                                      7.h,
-                                    ),
-                                  ),
-                                  onSelected: (value) {},
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(left: 30),
-                                child: RawChip(
-                                  padding: EdgeInsets.symmetric(
-                                    horizontal: 30.h,
-                                    vertical: 11.v,
-                                  ),
-                                  showCheckmark: false,
-                                  labelPadding: EdgeInsets.zero,
-                                  label: Text(
-                                    "100",
-                                    style: TextStyle(
-                                      color: Colors.redAccent,
-                                      fontSize: 22.fSize,
-                                      fontFamily: 'Arial',
-                                      fontWeight: FontWeight.w700,
-                                    ),
-                                  ),
-                                  selected: false,
-                                  backgroundColor:
-                                      appTheme.gray50001.withOpacity(0.15),
-                                  selectedColor: appTheme.whiteA700,
-                                  shape: RoundedRectangleBorder(
-                                    side: BorderSide.none,
-                                    borderRadius: BorderRadius.circular(
-                                      7.h,
-                                    ),
-                                  ),
-                                  onSelected: (value) {},
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(left: 30),
-                                child: RawChip(
-                                  padding: EdgeInsets.symmetric(
-                                    horizontal: 30.h,
-                                    vertical: 11.v,
-                                  ),
-                                  showCheckmark: false,
-                                  labelPadding: EdgeInsets.zero,
-                                  label: Text(
-                                    "150",
-                                    style: TextStyle(
-                                      color:
-                                          theme.colorScheme.secondaryContainer,
-                                      fontSize: 22.fSize,
-                                      fontFamily: 'Arial',
-                                      fontWeight: FontWeight.w700,
-                                    ),
-                                  ),
-                                  selected: false,
-                                  backgroundColor:
-                                      appTheme.gray50001.withOpacity(0.15),
-                                  selectedColor: appTheme.whiteA700,
-                                  shape: RoundedRectangleBorder(
-                                    side: BorderSide.none,
-                                    borderRadius: BorderRadius.circular(
-                                      7.h,
-                                    ),
-                                  ),
-                                  onSelected: (value) {},
-                                ),
-                              )
-                            ],
-                          ),
+                          // Row(
+                          //   children: [
+                          //     Padding(
+                          //       padding: const EdgeInsets.only(left: 15.0),
+                          //       child: RawChip(
+                          //         padding: EdgeInsets.symmetric(
+                          //           horizontal: 30.h,
+                          //           vertical: 11.v,
+                          //         ),
+                          //         showCheckmark: false,
+                          //         labelPadding: EdgeInsets.zero,
+                          //         label: Text(
+                          //           "50",
+                          //           style: TextStyle(
+                          //             color:
+                          //                 theme.colorScheme.secondaryContainer,
+                          //             fontSize: 22.fSize,
+                          //             fontFamily: 'Arial',
+                          //             fontWeight: FontWeight.w700,
+                          //           ),
+                          //         ),
+                          //         selected: false,
+                          //         backgroundColor:
+                          //             appTheme.gray50001.withOpacity(0.15),
+                          //         selectedColor: appTheme.whiteA700,
+                          //         shape: RoundedRectangleBorder(
+                          //           side: BorderSide.none,
+                          //           borderRadius: BorderRadius.circular(
+                          //             7.h,
+                          //           ),
+                          //         ),
+                          //         onSelected: (value) {},
+                          //       ),
+                          //     ),
+                          //     Padding(
+                          //       padding: const EdgeInsets.only(left: 30),
+                          //       child: RawChip(
+                          //         padding: EdgeInsets.symmetric(
+                          //           horizontal: 30.h,
+                          //           vertical: 11.v,
+                          //         ),
+                          //         showCheckmark: false,
+                          //         labelPadding: EdgeInsets.zero,
+                          //         label: Text(
+                          //           "100",
+                          //           style: TextStyle(
+                          //             color: Colors.redAccent,
+                          //             fontSize: 22.fSize,
+                          //             fontFamily: 'Arial',
+                          //             fontWeight: FontWeight.w700,
+                          //           ),
+                          //         ),
+                          //         selected: false,
+                          //         backgroundColor:
+                          //             appTheme.gray50001.withOpacity(0.15),
+                          //         selectedColor: appTheme.whiteA700,
+                          //         shape: RoundedRectangleBorder(
+                          //           side: BorderSide.none,
+                          //           borderRadius: BorderRadius.circular(
+                          //             7.h,
+                          //           ),
+                          //         ),
+                          //         onSelected: (value) {},
+                          //       ),
+                          //     ),
+                          //     Padding(
+                          //       padding: const EdgeInsets.only(left: 30),
+                          //       child: RawChip(
+                          //         padding: EdgeInsets.symmetric(
+                          //           horizontal: 30.h,
+                          //           vertical: 11.v,
+                          //         ),
+                          //         showCheckmark: false,
+                          //         labelPadding: EdgeInsets.zero,
+                          //         label: Text(
+                          //           "150",
+                          //           style: TextStyle(
+                          //             color:
+                          //                 theme.colorScheme.secondaryContainer,
+                          //             fontSize: 22.fSize,
+                          //             fontFamily: 'Arial',
+                          //             fontWeight: FontWeight.w700,
+                          //           ),
+                          //         ),
+                          //         selected: false,
+                          //         backgroundColor:
+                          //             appTheme.gray50001.withOpacity(0.15),
+                          //         selectedColor: appTheme.whiteA700,
+                          //         shape: RoundedRectangleBorder(
+                          //           side: BorderSide.none,
+                          //           borderRadius: BorderRadius.circular(
+                          //             7.h,
+                          //           ),
+                          //         ),
+                          //         onSelected: (value) {},
+                          //       ),
+                          //     )
+                          //   ],
+                          // ),
                           Spacer(),
                           CustomElevatedButton(
                               text: "Continue",
                               margin: EdgeInsets.symmetric(horizontal: 26.h),
+
+                              //onTapContinue(context);
                               onTap: () {
-                                onTapContinue(context);
+                                if (_formKey.currentState!.validate()) {
+                                  onTapContinue(context);
+                                }
                               },
                               alignment: Alignment.center)
                         ]))),

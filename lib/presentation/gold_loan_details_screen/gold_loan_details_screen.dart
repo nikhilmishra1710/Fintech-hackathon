@@ -1,7 +1,6 @@
-import 'package:tanisha_s_application14/presentation/gold_loan_payment_screen/gold_loan_payment_screen.dart';
-
 import 'package:flutter/material.dart';
 import 'package:tanisha_s_application14/core/app_export.dart';
+import 'package:tanisha_s_application14/presentation/gold_loan_payment_screen/gold_loan_payment_screen.dart';
 import 'package:tanisha_s_application14/widgets/app_bar/appbar_image.dart';
 import 'package:tanisha_s_application14/widgets/app_bar/appbar_image_1.dart';
 import 'package:tanisha_s_application14/widgets/app_bar/appbar_subtitle_2.dart';
@@ -61,298 +60,302 @@ class _GoldLoanDetailsScreenState extends State<GoldLoanDetailsScreen> {
                     width: double.maxFinite,
                     padding:
                         EdgeInsets.symmetric(horizontal: 19.h, vertical: 40.v),
-                    child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Container(
-                              margin: EdgeInsets.only(left: 20.h),
-                              padding: EdgeInsets.symmetric(
-                                  horizontal: 19.h, vertical: 20.v),
-                              decoration: AppDecoration.outlineBlueGray
-                                  .copyWith(
-                                      borderRadius:
-                                          BorderRadiusStyle.roundedBorder10),
-                              child: Row(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    CustomIconButton(
-                                        height: 49.v,
-                                        width: 50.h,
-                                        padding: EdgeInsets.all(12.h),
-                                        decoration:
-                                            IconButtonStyleHelper.fillPrimary,
-                                        child: CustomImageView(
-                                            svgPath: ImageConstant.imgMenu)),
-                                    Padding(
-                                        padding: EdgeInsets.only(
-                                            left: 15.h, bottom: 4.v),
-                                        child: Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Text("Gold Loan",
-                                                  style: CustomTextStyles
-                                                      .titleLargeBluegray900_1),
-                                              SizedBox(height: 5.v),
-                                              RichText(
-                                                  text: TextSpan(children: [
-                                                    TextSpan(
-                                                        text: "Amount:",
-                                                        style: CustomTextStyles
-                                                            .bodyMediumPink20014),
-                                                    TextSpan(text: " "),
-                                                    TextSpan(
-                                                        text: "15000.00",
-                                                        style: CustomTextStyles
-                                                            .titleSmallPrimary14_1),
-                                                    TextSpan(
-                                                        text: "INR",
-                                                        style: CustomTextStyles
-                                                            .arialBluegray900Bold)
-                                                  ]),
-                                                  textAlign: TextAlign.left)
-                                            ]))
-                                  ])),
-                          Align(
-                              alignment: Alignment.centerLeft,
-                              child: Padding(
-                                  padding:
-                                      EdgeInsets.only(left: 20.h, top: 45.v),
-                                  child: Text("Duration",
-                                      style: CustomTextStyles
-                                          .titleMediumBluegray90019))),
-                          SizedBox(height: 12.v),
-                          Row(
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.only(left: 30),
-                                child: RawChip(
-                                  padding: EdgeInsets.symmetric(
-                                    horizontal: 16.h,
-                                    vertical: 13.v,
-                                  ),
-                                  showCheckmark: false,
-                                  labelPadding: EdgeInsets.zero,
-                                  label: Text(
-                                    "6 Months",
-                                    style: TextStyle(
-                                      color:
-                                          theme.colorScheme.secondaryContainer,
-                                      fontSize: 18.fSize,
-                                      fontFamily: 'Arial',
-                                      fontWeight: FontWeight.w700,
-                                    ),
-                                  ),
-                                  selected: false,
-                                  backgroundColor:
-                                      const Color.fromARGB(255, 245, 221, 219),
-                                  selectedColor: appTheme.whiteA700,
-                                  shape: RoundedRectangleBorder(
-                                    side: BorderSide.none,
-                                    borderRadius: BorderRadius.circular(
-                                      7.h,
-                                    ),
-                                  ),
-                                  onSelected: (value) {},
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(left: 15),
-                                child: RawChip(
-                                  padding: EdgeInsets.symmetric(
-                                    horizontal: 16.h,
-                                    vertical: 13.v,
-                                  ),
-                                  showCheckmark: false,
-                                  labelPadding: EdgeInsets.zero,
-                                  label: Text(
-                                    "8 Months",
-                                    style: TextStyle(
-                                      color: Colors.redAccent,
-                                      fontSize: 18.fSize,
-                                      fontFamily: 'Arial',
-                                      fontWeight: FontWeight.w700,
-                                    ),
-                                  ),
-                                  selected: false,
-                                  backgroundColor: appTheme.pink200,
-                                  selectedColor: appTheme.pink200,
-                                  shape: RoundedRectangleBorder(
-                                    side: BorderSide.none,
-                                    borderRadius: BorderRadius.circular(
-                                      7.h,
-                                    ),
-                                  ),
-                                  onSelected: (value) {},
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(left: 15),
-                                child: RawChip(
-                                  padding: EdgeInsets.symmetric(
-                                    horizontal: 16.h,
-                                    vertical: 13.v,
-                                  ),
-                                  showCheckmark: false,
-                                  labelPadding: EdgeInsets.zero,
-                                  label: Text(
-                                    "10 Months",
-                                    style: TextStyle(
-                                      color:
-                                          theme.colorScheme.secondaryContainer,
-                                      fontSize: 18.fSize,
-                                      fontFamily: 'Arial',
-                                      fontWeight: FontWeight.w700,
-                                    ),
-                                  ),
-                                  selected: false,
-                                  backgroundColor:
-                                      const Color.fromARGB(255, 245, 221, 219),
-                                  selectedColor: appTheme.whiteA700,
-                                  shape: RoundedRectangleBorder(
-                                    side: BorderSide.none,
-                                    borderRadius: BorderRadius.circular(
-                                      7.h,
-                                    ),
-                                  ),
-                                  onSelected: (value) {},
-                                ),
-                              )
-                            ],
-                          ),
-                          // Wrap(
-                          //     runSpacing: 12.v,
-                          //     spacing: 12.h,
-                          //     children: List<Widget>.generate(
-                          //         3, (index) => Chipview6ItemWidget())),
-                          SingleChildScrollView(
-                            child: Column(
+                    child: SingleChildScrollView(
+                      child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Container(
+                                margin: EdgeInsets.only(left: 20.h),
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: 19.h, vertical: 20.v),
+                                decoration: AppDecoration.outlineBlueGray
+                                    .copyWith(
+                                        borderRadius:
+                                            BorderRadiusStyle.roundedBorder10),
+                                child: Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      CustomIconButton(
+                                          height: 49.v,
+                                          width: 50.h,
+                                          padding: EdgeInsets.all(12.h),
+                                          decoration:
+                                              IconButtonStyleHelper.fillPrimary,
+                                          child: CustomImageView(
+                                              svgPath: ImageConstant.imgMenu)),
+                                      Padding(
+                                          padding: EdgeInsets.only(
+                                              left: 15.h, bottom: 4.v),
+                                          child: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Text("Gold Loan",
+                                                    style: CustomTextStyles
+                                                        .titleLargeBluegray900_1),
+                                                SizedBox(height: 5.v),
+                                                RichText(
+                                                    text: TextSpan(children: [
+                                                      TextSpan(
+                                                          text: "Amount:",
+                                                          style: CustomTextStyles
+                                                              .bodyMediumPink20014),
+                                                      TextSpan(text: " "),
+                                                      TextSpan(
+                                                          text: "15000.00",
+                                                          style: CustomTextStyles
+                                                              .titleSmallPrimary14_1),
+                                                      TextSpan(
+                                                          text: "INR",
+                                                          style: CustomTextStyles
+                                                              .arialBluegray900Bold)
+                                                    ]),
+                                                    textAlign: TextAlign.left)
+                                              ]))
+                                    ])),
+                            Align(
+                                alignment: Alignment.centerLeft,
+                                child: Padding(
+                                    padding:
+                                        EdgeInsets.only(left: 20.h, top: 45.v),
+                                    child: Text("Duration",
+                                        style: CustomTextStyles
+                                            .titleMediumBluegray90019))),
+                            SizedBox(height: 12.v),
+                            Row(
                               children: [
-                                Align(
-                                    alignment: Alignment.centerLeft,
-                                    child: Padding(
-                                        padding: EdgeInsets.only(
-                                            left: 21.h, top: 45.v),
-                                        child: Text("Enter Your Information",
-                                            style: CustomTextStyles
-                                                .titleMediumBluegray90019))),
-                                CustomTextFormField(
-                                    controller: nameController,
-                                    validator: (value) {
-                                      if (value == null || value.isEmpty) {
-                                        return 'Name cannot be empty';
-                                      }
-                                      return null;
-                                    },
-                                    margin: EdgeInsets.only(
-                                        left: 21.h, top: 11.v, right: 1.h),
-                                    hintText: "Name",
-                                    hintStyle: theme.textTheme.bodyLarge!,
-                                    borderDecoration: TextFormFieldStyleHelper
-                                        .outlinePrimaryTL10,
-                                    fillColor: appTheme.whiteA700),
-                                CustomTextFormField(
-                                    controller: cnicController,
-                                    validator: (value) {
-                                      if (value == null || value.isEmpty) {
-                                        return 'Amount cannot be empty';
-                                      }
-                                      if (double.tryParse(value) == null) {
-                                        return 'Please enter a valid number';
-                                      }
-                                      return null;
-                                    },
-                                    margin: EdgeInsets.only(
-                                        left: 21.h, top: 12.v, right: 1.h),
-                                    hintText: "CNIC",
-                                    hintStyle: theme.textTheme.bodyLarge!),
-                                CustomTextFormField(
-                                    controller: mobileController,
-                                    validator: (value) {
-                                      if (value == null || value.isEmpty) {
-                                        return 'Mobile Number cannot be empty';
-                                      }
-                                      if (value.length != 10) {
-                                        return 'Mobile Number must be 10 digits';
-                                      }
-                                      return null;
-                                    },
-                                    margin: EdgeInsets.only(
-                                        left: 21.h, top: 12.v, right: 1.h),
-                                    hintText: "Mobile",
-                                    hintStyle: theme.textTheme.bodyLarge!,
-                                    textInputType: TextInputType.phone),
-                                CustomTextFormField(
-                                  controller: checkmarktwoController,
-                                  margin: EdgeInsets.only(
-                                      left: 21.h, top: 12.v, right: 1.h),
-                                  hintText: "Pasword",
-                                  hintStyle: theme.textTheme.bodyLarge!,
-                                  textInputAction: TextInputAction.done,
-                                  textInputType: TextInputType.visiblePassword,
-                                  // suffix: Container(
-                                  //     margin: EdgeInsets.fromLTRB(
-                                  //         30.h, 21.v, 23.h, 20.v),
-                                  //     child: CustomImageView(
-                                  //         svgPath: ImageConstant
-                                  //             .imgCheckmarkSecondarycontainer17x22)),
-                                  // suffixConstraints:
-                                  //     BoxConstraints(maxHeight: 60.v),
-                                  // obscureText: true,
-                                  // contentPadding: EdgeInsets.only(
-                                  //     left: 30.h, top: 10.v, bottom: 20.v)
-                                  suffix: GestureDetector(
-                                    onTap: () {
-                                      setState(() {
-                                        passwordVisible = !passwordVisible;
-                                      });
-                                    },
-                                    child: Container(
-                                      margin: EdgeInsets.fromLTRB(
-                                          30.h, 20.v, 13.h, 20.v),
-                                      child: Icon(
-                                        passwordVisible
-                                            ? Icons.visibility
-                                            : Icons.visibility_off,
-                                        color: appTheme.pink200,
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 30),
+                                  child: RawChip(
+                                    padding: EdgeInsets.symmetric(
+                                      horizontal: 16.h,
+                                      vertical: 13.v,
+                                    ),
+                                    showCheckmark: false,
+                                    labelPadding: EdgeInsets.zero,
+                                    label: Text(
+                                      "6 Months",
+                                      style: TextStyle(
+                                        color: theme
+                                            .colorScheme.secondaryContainer,
+                                        fontSize: 18.fSize,
+                                        fontFamily: 'Arial',
+                                        fontWeight: FontWeight.w700,
                                       ),
                                     ),
+                                    selected: false,
+                                    backgroundColor: const Color.fromARGB(
+                                        255, 245, 221, 219),
+                                    selectedColor: appTheme.whiteA700,
+                                    shape: RoundedRectangleBorder(
+                                      side: BorderSide.none,
+                                      borderRadius: BorderRadius.circular(
+                                        7.h,
+                                      ),
+                                    ),
+                                    onSelected: (value) {},
                                   ),
-                                  obscureText: !passwordVisible,
-                                  contentPadding: EdgeInsets.only(
-                                    left: 20.h,
-                                    top: 22.v,
-                                    bottom: 22.v,
-                                  ),
-                                  borderDecoration:
-                                      TextFormFieldStyleHelper.fillWhiteA,
-                                  fillColor: appTheme.whiteA700,
-                                  validator: (value) {
-                                    if (value == null || value.isEmpty) {
-                                      return 'Password cannot be empty';
-                                    }
-                                    if (value.length < 6) {
-                                      return 'Password must be at least 6 characters long';
-                                    }
-                                    return null;
-                                  },
                                 ),
-                                CustomElevatedButton(
-                                  text: "Continue",
-                                  margin: EdgeInsets.fromLTRB(
-                                      46.h, 45.v, 26.h, 4.v),
-                                  onTap: () {
-                                    if (_formKey.currentState!.validate()) {
-                                      onTapContinue(context);
-                                    }
-                                  },
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 15),
+                                  child: RawChip(
+                                    padding: EdgeInsets.symmetric(
+                                      horizontal: 16.h,
+                                      vertical: 13.v,
+                                    ),
+                                    showCheckmark: false,
+                                    labelPadding: EdgeInsets.zero,
+                                    label: Text(
+                                      "8 Months",
+                                      style: TextStyle(
+                                        color: Colors.redAccent,
+                                        fontSize: 18.fSize,
+                                        fontFamily: 'Arial',
+                                        fontWeight: FontWeight.w700,
+                                      ),
+                                    ),
+                                    selected: false,
+                                    backgroundColor: appTheme.pink200,
+                                    selectedColor: appTheme.pink200,
+                                    shape: RoundedRectangleBorder(
+                                      side: BorderSide.none,
+                                      borderRadius: BorderRadius.circular(
+                                        7.h,
+                                      ),
+                                    ),
+                                    onSelected: (value) {},
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 15),
+                                  child: RawChip(
+                                    padding: EdgeInsets.symmetric(
+                                      horizontal: 16.h,
+                                      vertical: 13.v,
+                                    ),
+                                    showCheckmark: false,
+                                    labelPadding: EdgeInsets.zero,
+                                    label: Text(
+                                      "10 Months",
+                                      style: TextStyle(
+                                        color: theme
+                                            .colorScheme.secondaryContainer,
+                                        fontSize: 18.fSize,
+                                        fontFamily: 'Arial',
+                                        fontWeight: FontWeight.w700,
+                                      ),
+                                    ),
+                                    selected: false,
+                                    backgroundColor: const Color.fromARGB(
+                                        255, 245, 221, 219),
+                                    selectedColor: appTheme.whiteA700,
+                                    shape: RoundedRectangleBorder(
+                                      side: BorderSide.none,
+                                      borderRadius: BorderRadius.circular(
+                                        7.h,
+                                      ),
+                                    ),
+                                    onSelected: (value) {},
+                                  ),
                                 )
                               ],
                             ),
-                          ),
-                        ]))),
+                            // Wrap(
+                            //     runSpacing: 12.v,
+                            //     spacing: 12.h,
+                            //     children: List<Widget>.generate(
+                            //         3, (index) => Chipview6ItemWidget())),
+                            SingleChildScrollView(
+                              child: Column(
+                                children: [
+                                  Align(
+                                      alignment: Alignment.centerLeft,
+                                      child: Padding(
+                                          padding: EdgeInsets.only(
+                                              left: 21.h, top: 45.v),
+                                          child: Text("Enter Your Information",
+                                              style: CustomTextStyles
+                                                  .titleMediumBluegray90019))),
+                                  CustomTextFormField(
+                                      controller: nameController,
+                                      validator: (value) {
+                                        if (value == null || value.isEmpty) {
+                                          return 'Name cannot be empty';
+                                        }
+                                        return null;
+                                      },
+                                      margin: EdgeInsets.only(
+                                          left: 21.h, top: 11.v, right: 1.h),
+                                      hintText: "Name",
+                                      hintStyle: theme.textTheme.bodyLarge!,
+                                      borderDecoration: TextFormFieldStyleHelper
+                                          .outlinePrimaryTL10,
+                                      fillColor: appTheme.whiteA700),
+                                  CustomTextFormField(
+                                      controller: cnicController,
+                                      validator: (value) {
+                                        if (value == null || value.isEmpty) {
+                                          return 'Amount cannot be empty';
+                                        }
+                                        if (double.tryParse(value) == null) {
+                                          return 'Please enter a valid number';
+                                        }
+                                        return null;
+                                      },
+                                      margin: EdgeInsets.only(
+                                          left: 21.h, top: 12.v, right: 1.h),
+                                      hintText: "CNIC",
+                                      hintStyle: theme.textTheme.bodyLarge!),
+                                  CustomTextFormField(
+                                      controller: mobileController,
+                                      validator: (value) {
+                                        if (value == null || value.isEmpty) {
+                                          return 'Mobile Number cannot be empty';
+                                        }
+                                        if (value.length != 10) {
+                                          return 'Mobile Number must be 10 digits';
+                                        }
+                                        return null;
+                                      },
+                                      margin: EdgeInsets.only(
+                                          left: 21.h, top: 12.v, right: 1.h),
+                                      hintText: "Mobile",
+                                      hintStyle: theme.textTheme.bodyLarge!,
+                                      textInputType: TextInputType.phone),
+                                  CustomTextFormField(
+                                    controller: checkmarktwoController,
+                                    margin: EdgeInsets.only(
+                                        left: 21.h, top: 12.v, right: 1.h),
+                                    hintText: "Pasword",
+                                    hintStyle: theme.textTheme.bodyLarge!,
+                                    textInputAction: TextInputAction.done,
+                                    textInputType:
+                                        TextInputType.visiblePassword,
+                                    // suffix: Container(
+                                    //     margin: EdgeInsets.fromLTRB(
+                                    //         30.h, 21.v, 23.h, 20.v),
+                                    //     child: CustomImageView(
+                                    //         svgPath: ImageConstant
+                                    //             .imgCheckmarkSecondarycontainer17x22)),
+                                    // suffixConstraints:
+                                    //     BoxConstraints(maxHeight: 60.v),
+                                    // obscureText: true,
+                                    // contentPadding: EdgeInsets.only(
+                                    //     left: 30.h, top: 10.v, bottom: 20.v)
+                                    suffix: GestureDetector(
+                                      onTap: () {
+                                        setState(() {
+                                          passwordVisible = !passwordVisible;
+                                        });
+                                      },
+                                      child: Container(
+                                        margin: EdgeInsets.fromLTRB(
+                                            30.h, 20.v, 13.h, 20.v),
+                                        child: Icon(
+                                          passwordVisible
+                                              ? Icons.visibility
+                                              : Icons.visibility_off,
+                                          color: appTheme.pink200,
+                                        ),
+                                      ),
+                                    ),
+                                    obscureText: !passwordVisible,
+                                    contentPadding: EdgeInsets.only(
+                                      left: 20.h,
+                                      top: 22.v,
+                                      bottom: 22.v,
+                                    ),
+                                    borderDecoration: TextFormFieldStyleHelper
+                                        .outlinePrimaryTL7,
+                                    fillColor: appTheme.whiteA700,
+                                    validator: (value) {
+                                      if (value == null || value.isEmpty) {
+                                        return 'Password cannot be empty';
+                                      }
+                                      if (value.length < 6) {
+                                        return 'Password must be at least 6 characters long';
+                                      }
+                                      return null;
+                                    },
+                                  ),
+                                  CustomElevatedButton(
+                                    text: "Continue",
+                                    margin: EdgeInsets.fromLTRB(
+                                        46.h, 45.v, 26.h, 4.v),
+                                    onTap: () {
+                                      if (_formKey.currentState!.validate()) {
+                                        onTapContinue(context);
+                                      }
+                                    },
+                                  )
+                                ],
+                              ),
+                            ),
+                          ]),
+                    ))),
             bottomNavigationBar:
                 CustomBottomBar(onChanged: (BottomBarEnum type) {})));
   }

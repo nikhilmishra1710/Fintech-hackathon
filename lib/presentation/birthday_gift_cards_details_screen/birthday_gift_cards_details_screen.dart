@@ -248,7 +248,7 @@ class _BirthdayGiftCardsDetailsScreenState
                                           ),
                                           borderDecoration:
                                               TextFormFieldStyleHelper
-                                                  .fillWhiteA,
+                                                  .outlinePrimaryTL7,
                                           fillColor: appTheme.whiteA700,
                                           validator: (value) {
                                             if (value == null ||
@@ -300,116 +300,6 @@ class _BirthdayGiftCardsDetailsScreenState
                                         //         3,
                                         //         (index) =>
                                         //             Chipviewgroup11ItemWidget())),
-                                        Row(
-                                          children: [
-                                            Padding(
-                                              padding: const EdgeInsets.only(
-                                                  left: 25),
-                                              child: RawChip(
-                                                padding: EdgeInsets.symmetric(
-                                                  horizontal: 30.h,
-                                                  vertical: 11.v,
-                                                ),
-                                                showCheckmark: false,
-                                                labelPadding: EdgeInsets.zero,
-                                                label: Text(
-                                                  "100",
-                                                  style: TextStyle(
-                                                    color: theme.colorScheme
-                                                        .secondaryContainer,
-                                                    fontSize: 22.fSize,
-                                                    fontFamily: 'Arial',
-                                                    fontWeight: FontWeight.w400,
-                                                  ),
-                                                ),
-                                                selected: false,
-                                                backgroundColor: appTheme
-                                                    .gray50001
-                                                    .withOpacity(0.15),
-                                                selectedColor:
-                                                    appTheme.whiteA700,
-                                                shape: RoundedRectangleBorder(
-                                                  side: BorderSide.none,
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                    7.h,
-                                                  ),
-                                                ),
-                                                onSelected: (value) {},
-                                              ),
-                                            ),
-                                            Padding(
-                                              padding: const EdgeInsets.only(
-                                                  left: 20),
-                                              child: RawChip(
-                                                padding: EdgeInsets.symmetric(
-                                                  horizontal: 30.h,
-                                                  vertical: 11.v,
-                                                ),
-                                                showCheckmark: false,
-                                                labelPadding: EdgeInsets.zero,
-                                                label: Text(
-                                                  "150",
-                                                  style: TextStyle(
-                                                    color: Colors.redAccent,
-                                                    fontSize: 22.fSize,
-                                                    fontFamily: 'Arial',
-                                                    fontWeight: FontWeight.w600,
-                                                  ),
-                                                ),
-                                                selected: false,
-                                                backgroundColor:
-                                                    Colors.red[100],
-                                                selectedColor:
-                                                    appTheme.whiteA700,
-                                                shape: RoundedRectangleBorder(
-                                                  side: BorderSide.none,
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                    7.h,
-                                                  ),
-                                                ),
-                                                onSelected: (value) {},
-                                              ),
-                                            ),
-                                            Padding(
-                                              padding: const EdgeInsets.only(
-                                                  left: 20),
-                                              child: RawChip(
-                                                padding: EdgeInsets.symmetric(
-                                                  horizontal: 30.h,
-                                                  vertical: 11.v,
-                                                ),
-                                                showCheckmark: false,
-                                                labelPadding: EdgeInsets.zero,
-                                                label: Text(
-                                                  "200",
-                                                  style: TextStyle(
-                                                    color: theme.colorScheme
-                                                        .secondaryContainer,
-                                                    fontSize: 22.fSize,
-                                                    fontFamily: 'Arial',
-                                                    fontWeight: FontWeight.w400,
-                                                  ),
-                                                ),
-                                                selected: false,
-                                                backgroundColor: appTheme
-                                                    .gray50001
-                                                    .withOpacity(0.15),
-                                                selectedColor:
-                                                    appTheme.whiteA700,
-                                                shape: RoundedRectangleBorder(
-                                                  side: BorderSide.none,
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                    7.h,
-                                                  ),
-                                                ),
-                                                onSelected: (value) {},
-                                              ),
-                                            ),
-                                          ],
-                                        ),
                                         SizedBox(height: 34.v),
                                         Align(
                                             alignment: Alignment.center,

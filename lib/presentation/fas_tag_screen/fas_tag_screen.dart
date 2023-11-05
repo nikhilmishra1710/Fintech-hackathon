@@ -169,6 +169,15 @@ class FasTagScreen extends StatelessWidget {
                           SizedBox(height: 11.v),
                           CustomTextFormField(
                               controller: vehicleidlabelController,
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'This cannot be empty';
+                                }
+                                if (value.length < 4 && value.length > 12) {
+                                  return 'Invalid format';
+                                }
+                                return null;
+                              },
                               hintText: "Enter Vehicle Registration Number",
                               textInputAction: TextInputAction.done,
                               textInputType: TextInputType.number,
@@ -191,7 +200,10 @@ class FasTagScreen extends StatelessWidget {
                               margin:
                                   EdgeInsets.fromLTRB(37.h, 68.v, 37.h, 4.v),
                               onTap: () {
-                                onTapProceed(context);
+                                //onTapProceed(context);
+                                if (_formKey.currentState!.validate()) {
+                                  onTapProceed(context);
+                                }
                               },
                               alignment: Alignment.center)
                         ]))),

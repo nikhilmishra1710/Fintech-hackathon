@@ -93,6 +93,7 @@ class LoanDetailsPageState extends State<LoanDetailsPage>
                           controller: passwordlabelController,
                           margin: EdgeInsets.only(left: 8.h, top: 29.v),
                           hintText: "Pasword",
+
                           hintStyle: theme.textTheme.bodyLarge!,
                           textInputAction: TextInputAction.done,
                           textInputType: TextInputType.visiblePassword,
@@ -129,7 +130,8 @@ class LoanDetailsPageState extends State<LoanDetailsPage>
                             top: 22.v,
                             bottom: 22.v,
                           ),
-                          borderDecoration: TextFormFieldStyleHelper.fillWhiteA,
+                          borderDecoration:
+                              TextFormFieldStyleHelper.outlinePrimaryTL72,
                           fillColor: appTheme.whiteA700,
                           validator: (value) {
                             if (value == null || value.isEmpty) {
@@ -141,15 +143,18 @@ class LoanDetailsPageState extends State<LoanDetailsPage>
                             return null;
                           },
                         ),
-                        CustomElevatedButton(
-                          text: "Continue",
-                          margin: EdgeInsets.only(
-                              left: 26.h, top: 29.v, right: 26.h),
-                          onTap: () {
-                            if (_formKey.currentState!.validate()) {
-                              onTapContinue(context);
-                            }
-                          },
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 30),
+                          child: CustomElevatedButton(
+                            text: "Continue",
+                            margin: EdgeInsets.only(
+                                left: 26.h, top: 29.v, right: 26.h),
+                            onTap: () {
+                              if (_formKey.currentState!.validate()) {
+                                onTapContinue(context);
+                              }
+                            },
+                          ),
                         )
                       ]))
                 ])))));

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:tanisha_s_application14/theme/theme_helper.dart';
-import 'package:tanisha_s_application14/routes/app_routes.dart';
 import 'package:provider/provider.dart';
+import 'package:tanisha_s_application14/routes/app_routes.dart';
+import 'package:tanisha_s_application14/theme/theme_helper.dart';
+
 import 'presentation/customer_id_provider.dart';
 
 void main() {
@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
       theme: theme,
       title: 'tanisha_s_application14',
       debugShowCheckedModeBanner: false,
-      initialRoute: AppRoutes.loginScreen,
+      initialRoute: AppRoutes.dashboardScreen,
       routes: AppRoutes.routes,
     );
   }

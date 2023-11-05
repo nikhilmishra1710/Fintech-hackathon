@@ -61,6 +61,15 @@ class KycUpdatePhoneNoScreen extends StatelessWidget {
                           margin: EdgeInsets.only(left: 4.h, top: 88.v)),
                       CustomTextFormField(
                           controller: phoneController,
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Mobile Number cannot be empty';
+                            }
+                            if (value.length != 10) {
+                              return 'Mobile Number must be 10 digits';
+                            }
+                            return null;
+                          },
                           margin: EdgeInsets.only(top: 65.v, right: 8.h),
                           hintText: "KYC Update _ Phone No.",
                           textInputAction: TextInputAction.done,
@@ -69,7 +78,10 @@ class KycUpdatePhoneNoScreen extends StatelessWidget {
                         text: "Submit",
                         margin: EdgeInsets.fromLTRB(3.h, 65.v, 3.h, 5.v),
                         onTap: () {
-                          onTapkyphcon(context);
+                          //onTapkyphcon(context);
+                          if (_formKey.currentState!.validate()) {
+                            onTapkyphcon(context);
+                          }
                         },
                       )
                     ]))),

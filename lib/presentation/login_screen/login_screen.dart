@@ -1,10 +1,12 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'package:provider/provider.dart';
 import 'package:tanisha_s_application14/core/app_export.dart';
 import 'package:tanisha_s_application14/widgets/custom_elevated_button.dart';
 import 'package:tanisha_s_application14/widgets/custom_text_form_field.dart';
-import 'package:http/http.dart' as http;
-import 'dart:convert';
-import 'package:provider/provider.dart';
+
 import '../customer_id_provider.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -29,100 +31,102 @@ class _LoginScreenState extends State<LoginScreen> {
           key: _formKey,
           child: Padding(
             padding: const EdgeInsets.only(top: 150),
-            child: Column(
-              children: [
-                CustomTextFormField(
-                  controller: userIdController,
-                  margin: EdgeInsets.only(left: 56.h, top: 35.v, right: 56.h),
-                  hintText: "User ID",
-                  hintStyle: CustomTextStyles.titleMediumGray5000116_1,
-                  borderDecoration: TextFormFieldStyleHelper.fillWhiteA,
-                  fillColor: appTheme.whiteA700,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'User ID cannot be empty';
-                    }
-                    return null;
-                  },
-                ),
-                CustomTextFormField(
-                  controller: passwordController,
-                  margin: EdgeInsets.only(left: 56.h, top: 35.v, right: 56.h),
-                  hintText: "Password",
-                  hintStyle: CustomTextStyles.titleMediumGray5000116_1,
-                  borderDecoration: TextFormFieldStyleHelper.fillWhiteA,
-                  fillColor: appTheme.whiteA700,
-                  obscureText: !passwordVisible,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Password cannot be empty';
-                    } else if (value.length < 6) {
-                      return 'Password must be at least 6 characters long';
-                    }
-                    return null;
-                  },
-                  suffix: GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        passwordVisible = !passwordVisible;
-                      });
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  CustomTextFormField(
+                    controller: userIdController,
+                    margin: EdgeInsets.only(left: 56.h, top: 35.v, right: 56.h),
+                    hintText: "User ID",
+                    hintStyle: CustomTextStyles.titleMediumGray5000116_1,
+                    borderDecoration: TextFormFieldStyleHelper.fillWhiteA,
+                    fillColor: appTheme.whiteA700,
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'User ID cannot be empty';
+                      }
+                      return null;
                     },
-                    child: Container(
-                      padding: EdgeInsets.all(10.0),
-                      margin: EdgeInsets.only(),
-                      child: Icon(
-                        passwordVisible
-                            ? Icons.visibility
-                            : Icons.visibility_off,
-                        color: appTheme.pink200,
+                  ),
+                  CustomTextFormField(
+                    controller: passwordController,
+                    margin: EdgeInsets.only(left: 56.h, top: 35.v, right: 56.h),
+                    hintText: "Password",
+                    hintStyle: CustomTextStyles.titleMediumGray5000116_1,
+                    borderDecoration: TextFormFieldStyleHelper.fillWhiteA,
+                    fillColor: appTheme.whiteA700,
+                    obscureText: !passwordVisible,
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Password cannot be empty';
+                      } else if (value.length < 6) {
+                        return 'Password must be at least 6 characters long';
+                      }
+                      return null;
+                    },
+                    suffix: GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          passwordVisible = !passwordVisible;
+                        });
+                      },
+                      child: Container(
+                        padding: EdgeInsets.all(10.0),
+                        margin: EdgeInsets.only(),
+                        child: Icon(
+                          passwordVisible
+                              ? Icons.visibility
+                              : Icons.visibility_off,
+                          color: appTheme.pink200,
+                        ),
                       ),
                     ),
+                    suffixConstraints: BoxConstraints(maxHeight: 63.v),
                   ),
-                  suffixConstraints: BoxConstraints(maxHeight: 63.v),
-                ),
-                CustomElevatedButton(
-                  text: "Login",
-                  margin: EdgeInsets.only(left: 58.h, top: 33.v, right: 58.h),
-                  onTap: () {
-                    if (_formKey.currentState!.validate()) {
-                      onTapLogin(context);
-                    }
-                  },
-                ),
-                SizedBox(height: 37.v),
-                GestureDetector(
-                  onTap: () {
-                    onTapForget(context);
-                  },
-                  child: Text("Forget User / Password ?",
-                      style: theme.textTheme.titleMedium),
-                ),
-                SizedBox(height: 33.v),
-                SizedBox(height: 33.v),
-                CustomImageView(
-                    svgPath: ImageConstant.imgFingerprint,
-                    height: 45.v,
-                    width: 39.h,
+                  CustomElevatedButton(
+                    text: "Login",
+                    margin: EdgeInsets.only(left: 58.h, top: 33.v, right: 58.h),
                     onTap: () {
-                      onTapImgFingerprintone(context);
-                    }),
-                SizedBox(height: 37.v),
-                GestureDetector(
-                    onTap: () {
-                      onTapTxtDonthaveanaccount(context);
+                      if (_formKey.currentState!.validate()) {
+                        onTapLogin(context);
+                      }
                     },
-                    child: RichText(
-                        text: TextSpan(children: [
-                          TextSpan(
-                              text: "Don't have an account? ",
-                              style: theme.textTheme.titleMedium),
-                          TextSpan(
-                              text: "Sign Up",
-                              style: CustomTextStyles.titleMediumWhiteA700_2)
-                        ]),
-                        textAlign: TextAlign.left)),
-                SizedBox(height: 40.v)
-              ],
+                  ),
+                  SizedBox(height: 37.v),
+                  GestureDetector(
+                    onTap: () {
+                      onTapForget(context);
+                    },
+                    child: Text("Forget User / Password ?",
+                        style: theme.textTheme.titleMedium),
+                  ),
+                  SizedBox(height: 33.v),
+                  SizedBox(height: 33.v),
+                  CustomImageView(
+                      svgPath: ImageConstant.imgFingerprint,
+                      height: 45.v,
+                      width: 39.h,
+                      onTap: () {
+                        onTapImgFingerprintone(context);
+                      }),
+                  SizedBox(height: 37.v),
+                  GestureDetector(
+                      onTap: () {
+                        onTapTxtDonthaveanaccount(context);
+                      },
+                      child: RichText(
+                          text: TextSpan(children: [
+                            TextSpan(
+                                text: "Don't have an account? ",
+                                style: theme.textTheme.titleMedium),
+                            TextSpan(
+                                text: "Sign Up",
+                                style: CustomTextStyles.titleMediumWhiteA700_2)
+                          ]),
+                          textAlign: TextAlign.left)),
+                  SizedBox(height: 40.v)
+                ],
+              ),
             ),
           ),
         ),

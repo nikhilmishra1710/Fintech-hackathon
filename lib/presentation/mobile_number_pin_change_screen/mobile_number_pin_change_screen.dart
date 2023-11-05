@@ -6,7 +6,6 @@ import 'package:tanisha_s_application14/widgets/app_bar/appbar_subtitle_2.dart';
 import 'package:tanisha_s_application14/widgets/app_bar/custom_app_bar.dart';
 import 'package:tanisha_s_application14/widgets/custom_bottom_bar.dart';
 import 'package:tanisha_s_application14/widgets/custom_elevated_button.dart';
-import 'package:tanisha_s_application14/widgets/custom_text_form_field.dart';
 
 // ignore_for_file: must_be_immutable
 class MobileNumberPinChangeScreen extends StatelessWidget {
@@ -47,10 +46,23 @@ class MobileNumberPinChangeScreen extends StatelessWidget {
                       EdgeInsets.symmetric(horizontal: 30.h, vertical: 35.v),
                   child: Column(children: [
                     SizedBox(height: 21.v),
-                    CustomImageView(
-                        svgPath: ImageConstant.imgComputer,
-                        height: 80.v,
-                        width: 61.h),
+                    // CustomImageView(
+                    //     svgPath: ImageConstant.imgComputer,
+                    //     height: 80.v,
+                    //     width: 61.h),
+                    Container(
+                      height: 80.v,
+                      width: 80.v, // To make it a perfect circle
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Colors.red, // Red circular background
+                      ),
+                      child: Icon(
+                        Icons.phone,
+                        color: Colors.white, // Icon color
+                        size: 61.h, // Icon size
+                      ),
+                    ),
                     SizedBox(height: 28.v),
                     Text("Mobile Number",
                         style: CustomTextStyles.headlineLargeBluegray900),
@@ -73,29 +85,60 @@ class MobileNumberPinChangeScreen extends StatelessWidget {
                                 style:
                                     CustomTextStyles.titleMediumBluegray200))),
                     SizedBox(height: 14.v),
-                    CustomTextFormField(
-                        controller: mobilenumberthrController,
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Mobile Number cannot be empty';
-                          }
-                          if (value.length != 10) {
-                            return 'Mobile Number must be 10 digits';
-                          }
-                          return null;
-                        },
+                    // CustomTextFormField(
+                    //     controller: mobilenumberthrController,
+                    //     validator: (value) {
+                    //       if (value == null || value.isEmpty) {
+                    //         return 'Mobile Number cannot be empty';
+                    //       }
+                    //       if (value.length != 10) {
+                    //         return 'Mobile Number must be 10 digits';
+                    //       }
+                    //       return null;
+                    //     },
+                    //     hintText: "+91 983 369 789",
+                    //     hintStyle: CustomTextStyles.bodyLargeArapeyBluegray900,
+                    //     textInputAction: TextInputAction.done,
+                    //     prefix: Container(
+                    //         margin: EdgeInsets.fromLTRB(19.h, 15.v, 12.h, 19.v),
+                    //         child: CustomImageView(
+                    //             imagePath: ImageConstant.imgImage129,
+                    //             height: 29.adaptSize,
+                    //             width: 29.adaptSize)),
+                    //     prefixConstraints: BoxConstraints(maxHeight: 65.v),
+                    //     contentPadding: EdgeInsets.only(
+                    //         top: 23.v, right: 30.h, bottom: 23.v)),
+                    TextFormField(
+                      controller: mobilenumberthrController,
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Mobile Number cannot be empty';
+                        }
+                        if (value.length != 10) {
+                          return 'Mobile Number must be 10 digits';
+                        }
+                        return null;
+                      },
+                      keyboardType: TextInputType.phone,
+                      decoration: InputDecoration(
                         hintText: "+91 983 369 789",
                         hintStyle: CustomTextStyles.bodyLargeArapeyBluegray900,
-                        textInputAction: TextInputAction.done,
-                        prefix: Container(
-                            margin: EdgeInsets.fromLTRB(19.h, 15.v, 12.h, 19.v),
-                            child: CustomImageView(
-                                imagePath: ImageConstant.imgImage129,
-                                height: 29.adaptSize,
-                                width: 29.adaptSize)),
-                        prefixConstraints: BoxConstraints(maxHeight: 65.v),
+                        prefixIcon: Container(
+                          margin: EdgeInsets.fromLTRB(19.h, 15.v, 12.h, 19.v),
+                          child: Image.asset(
+                            ImageConstant.imgImage129,
+                            height: 29.adaptSize,
+                            width: 29.adaptSize,
+                          ),
+                        ),
                         contentPadding: EdgeInsets.only(
-                            top: 23.v, right: 30.h, bottom: 23.v)),
+                          top: 23.v,
+                          right: 30.h,
+                          bottom: 23.v,
+                        ),
+                      ),
+                      textInputAction: TextInputAction.done,
+                    ),
                     Spacer(),
                     CustomElevatedButton(
                       text: "Next",

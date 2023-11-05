@@ -1,5 +1,9 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:http/http.dart' as http;
+import 'package:provider/provider.dart';
 import 'package:tanisha_s_application14/core/app_export.dart';
 import 'package:tanisha_s_application14/presentation/jio_confirmation_successful_transfer_one_screen/jio_confirmation_successful_transfer_one_screen.dart';
 import 'package:tanisha_s_application14/widgets/app_bar/appbar_image.dart';
@@ -8,9 +12,7 @@ import 'package:tanisha_s_application14/widgets/app_bar/appbar_subtitle_2.dart';
 import 'package:tanisha_s_application14/widgets/app_bar/custom_app_bar.dart';
 import 'package:tanisha_s_application14/widgets/custom_bottom_bar.dart';
 import 'package:tanisha_s_application14/widgets/custom_elevated_button.dart';
-import 'package:http/http.dart' as http;
-import 'dart:convert';
-import 'package:provider/provider.dart';
+
 import '../customer_id_provider.dart';
 
 // ignore_for_file: must_be_immutable
@@ -113,7 +115,8 @@ class JioMobileRechargeScreen extends StatelessWidget {
           );
         }
       } else {
-        Navigator.pushNamed(context, AppRoutes.loginScreen);
+        Navigator.pushNamed(
+            context, AppRoutes.jioConfirmationSuccessfulTransferOneScreen);
       }
     }
   }

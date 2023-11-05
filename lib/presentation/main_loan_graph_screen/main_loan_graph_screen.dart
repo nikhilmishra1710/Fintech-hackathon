@@ -1,6 +1,3 @@
-import 'package:tanisha_s_application14/widgets/custom_elevated_button.dart';
-import 'package:tanisha_s_application14/widgets/custom_icon_button.dart';
-
 import 'package:flutter/material.dart';
 import 'package:tanisha_s_application14/core/app_export.dart';
 import 'package:tanisha_s_application14/widgets/app_bar/appbar_image.dart';
@@ -8,6 +5,8 @@ import 'package:tanisha_s_application14/widgets/app_bar/appbar_image_1.dart';
 import 'package:tanisha_s_application14/widgets/app_bar/appbar_subtitle_2.dart';
 import 'package:tanisha_s_application14/widgets/app_bar/custom_app_bar.dart';
 import 'package:tanisha_s_application14/widgets/custom_bottom_bar.dart';
+import 'package:tanisha_s_application14/widgets/custom_elevated_button.dart';
+import 'package:tanisha_s_application14/widgets/custom_icon_button.dart';
 
 // ignore_for_file: must_be_immutable
 class MainLoanGraphScreen extends StatelessWidget {
@@ -76,14 +75,42 @@ class MainLoanGraphScreen extends StatelessWidget {
                                               top: 11.v,
                                               bottom: 14.v))
                                     ]),
-                                SizedBox(height: 42.v),
+                                //                                   Container(
+                                // width: 100.0, // Adjust the width and height as needed for your circular container
+                                // height: 100.0,
+                                // decoration: BoxDecoration(
+                                //   shape: BoxShape.circle,
+                                //   color: Colors.red,
+                                // ),
+                                // child: Image.asset(
+                                //   ImageConstant., // Replace with the actual image path from ImageConstant
+                                //   width: 80.0, // Adjust the width and height of the image
+                                //   height: 80.0,
+                                // ),
+//)
+                                SizedBox(height: 10),
+                                Container(
+                                  height: 80.v,
+                                  width: 80.v, // To make it a perfect circle
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color:
+                                        Colors.red, // Red circular background
+                                  ),
+                                  child: Icon(
+                                    Icons.currency_rupee_rounded,
+                                    color: Colors.white, // Icon color
+                                    size: 61.h, // Icon size
+                                  ),
+                                ),
+                                SizedBox(height: 2.v),
                                 SizedBox(
                                   height: 130.adaptSize,
                                   width: 130.adaptSize,
                                   //child: CircularProgressIndicator(value: 1)
                                   //add image in this loc and also change the icons of the 3 column
                                 ),
-                                SizedBox(height: 43.v),
+                                SizedBox(height: 3.v),
                                 Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [

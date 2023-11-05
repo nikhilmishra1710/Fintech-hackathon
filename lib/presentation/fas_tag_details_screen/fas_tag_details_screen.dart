@@ -138,7 +138,7 @@ class FasTagDetailsScreen extends StatelessWidget {
                       CustomElevatedButton(
                           height: 40.v,
                           width: 177.h,
-                          text: "xxxxxxxx",
+                          text: "Fast Tag Payment",
                           buttonStyle: CustomButtonStyles.fillBlueGray,
                           buttonTextStyle: theme.textTheme.titleSmall!,
                           alignment: Alignment.center),
@@ -157,7 +157,7 @@ class FasTagDetailsScreen extends StatelessWidget {
                                     padding: EdgeInsets.only(bottom: 1.v),
                                     child: Text("Name :",
                                         style: theme.textTheme.titleSmall)),
-                                Text("xxxxxxxx",
+                                Text("Dr Kamal Joshi",
                                     style: theme.textTheme.titleSmall)
                               ])),
                       Padding(
@@ -167,14 +167,14 @@ class FasTagDetailsScreen extends StatelessWidget {
                               children: [
                                 Text("FASTag :",
                                     style: theme.textTheme.titleSmall),
-                                Text("xxxxxxxx",
+                                Text("123759864",
                                     style: theme.textTheme.titleSmall)
                               ])),
                       SizedBox(height: 3.v),
                       Text("Amount ",
                           style: CustomTextStyles.titleSmallBlack90003_1),
                       SizedBox(height: 10.v),
-                      Text("xxxxxxxx", style: theme.textTheme.titleSmall),
+                      Text("500", style: theme.textTheme.titleSmall),
                       CustomElevatedButton(
                           text: "Proceed",
                           margin: EdgeInsets.fromLTRB(32.h, 80.v, 32.h, 4.v),

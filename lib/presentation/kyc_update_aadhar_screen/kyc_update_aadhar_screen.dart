@@ -12,6 +12,7 @@ class KycUpdateAadharScreen extends StatelessWidget {
   KycUpdateAadharScreen({Key? key}) : super(key: key);
 
   GlobalKey<NavigatorState> navigatorKey = GlobalKey();
+  GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -35,52 +36,83 @@ class KycUpdateAadharScreen extends StatelessWidget {
                       margin: EdgeInsets.only(
                           left: 29.h, right: 29.h, bottom: 18.v))
                 ]),
-            body: Container(
-                width: double.maxFinite,
-                padding: EdgeInsets.symmetric(horizontal: 45.h, vertical: 21.v),
-                child: Column(children: [
-                  CustomImageView(
-                      svgPath: ImageConstant.imgFrame8018,
-                      height: 225.v,
-                      width: 322.h),
-                  CustomElevatedButton(
-                      text: "Browse from Storage",
-                      margin: EdgeInsets.only(top: 81.v, right: 22.h),
-                      alignment: Alignment.centerLeft),
-                  SizedBox(height: 80.v),
-                  SizedBox(
-                      height: 62.v,
-                      width: 314.h,
-                      child: Stack(alignment: Alignment.bottomLeft, children: [
-                        Align(
-                            alignment: Alignment.topCenter,
-                            child: Container(
-                                height: 60.v,
-                                width: 314.h,
-                                decoration: BoxDecoration(
-                                    color: appTheme.gray50001.withOpacity(0.15),
-                                    borderRadius:
-                                        BorderRadius.circular(10.h)))),
-                        Align(
+            body: Form(
+              key: _formKey,
+              child: Container(
+                  width: double.maxFinite,
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 45.h, vertical: 21.v),
+                  child: Column(children: [
+                    CustomImageView(
+                        svgPath: ImageConstant.imgFrame8018,
+                        height: 225.v,
+                        width: 322.h),
+                    CustomElevatedButton(
+                        text: "Browse from Storage",
+                        margin: EdgeInsets.only(top: 81.v, right: 22.h),
+                        alignment: Alignment.centerLeft),
+                    SizedBox(height: 80.v),
+                    SizedBox(
+                        height: 62.v,
+                        width: 314.h,
+                        child:
+                            Stack(alignment: Alignment.bottomLeft, children: [
+                          Align(
+                              alignment: Alignment.topCenter,
+                              child: Container(
+                                  height: 60.v,
+                                  width: 314.h,
+                                  decoration: BoxDecoration(
+                                      color:
+                                          appTheme.gray50001.withOpacity(0.15),
+                                      borderRadius:
+                                          BorderRadius.circular(10.h)))),
+                          Align(
                             alignment: Alignment.bottomLeft,
-                            child: Container(
-                                width: 207.h,
-                                margin: EdgeInsets.only(left: 50.h),
-                                child: Text("KYC Update _ Aadhar \n Address",
-                                    maxLines: 2,
-                                    overflow: TextOverflow.ellipsis,
-                                    style: CustomTextStyles
-                                        .titleLargeBluegray10002
-                                        .copyWith(height: 1.47))))
-                      ])),
-                  CustomElevatedButton(
-                    text: "Submit",
-                    margin: EdgeInsets.fromLTRB(8.h, 69.v, 14.h, 5.v),
-                    onTap: () {
-                      onTapkyadcon(context);
-                    },
-                  )
-                ])),
+                            // child: Container(
+                            //     width: 207.h,
+                            //     margin: EdgeInsets.only(left: 50.h),
+                            //     child: Text("KYC Update _ Aadhar \n Address",
+                            //         maxLines: 2,
+                            //         overflow: TextOverflow.ellipsis,
+                            //         style: CustomTextStyles
+                            //             .titleLargeBluegray10002
+                            //             .copyWith(height: 1.47)))
+                            child: TextFormField(
+                              controller: TextEditingController(),
+                              // You can provide a controller if needed
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'Aadhar Number cannot be empty';
+                                }
+                                if (value.length != 12) {
+                                  return 'Aadhar Number must be 12 digits';
+                                }
+                                return null;
+                              },
+                              readOnly:
+                                  true, // Make it read-only to prevent user input
+                              decoration: InputDecoration(
+                                labelText: "KYC Update - Aadhar",
+                                labelStyle: CustomTextStyles
+                                    .titleLargeBluegray100
+                                    .copyWith(height: 1.47),
+                              ),
+                            ),
+                          )
+                        ])),
+                    CustomElevatedButton(
+                      text: "Submit",
+                      margin: EdgeInsets.fromLTRB(8.h, 69.v, 14.h, 5.v),
+                      onTap: () {
+                        //onTapkyadcon(context);
+                        if (_formKey.currentState!.validate()) {
+                          onTapkyadcon(context);
+                        }
+                      },
+                    )
+                  ])),
+            ),
             bottomNavigationBar:
                 CustomBottomBar(onChanged: (BottomBarEnum type) {})));
   }
