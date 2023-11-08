@@ -16,23 +16,23 @@ class BaseButton extends StatelessWidget {
           key: key,
         );
 
-  final String text;
+  // final String text;
 
-  final VoidCallback? onTap;
+  // final VoidCallback? onTap;
 
-  final ButtonStyle? buttonStyle;
+  // final ButtonStyle? buttonStyle;
 
-  final TextStyle? buttonTextStyle;
+  // final TextStyle? buttonTextStyle;
 
-  final bool? isDisabled;
+  // final bool? isDisabled;
 
-  final double? height;
+  // final double? height;
 
-  final double? width;
+  // final double? width;
 
-  final EdgeInsets? margin;
+  // final EdgeInsets? margin;
 
-  final Alignment? alignment;
+  // final Alignment? alignment;
 
   @override
   Widget build(BuildContext context) {
