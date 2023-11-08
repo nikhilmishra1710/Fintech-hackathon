@@ -57,9 +57,6 @@ class AppDecoration {
         color: appTheme.tealA70002,
         boxShadow: [
           BoxShadow(
-            color: appTheme.black90003.withOpacity(0.09),
-            spreadRadius: 2.h,
-            blurRadius: 2.h,
             offset: Offset(
               8,
               7,
